@@ -9,7 +9,7 @@ import scala.concurrent.Future
 protected[video] trait VideoRepositoryMock extends MockFactory {
   this: UnitTestCase => // Make mandatory to also extend UnitTestCase in order to avoid using mocks in any other kind of test.
 
-  protected val repository: VideoRepository = mock[VideoRepository]
+  protected val repository: VideoRepository[Future] = mock[VideoRepository[Future]]
 
   protected def repositoryShouldSave(video: Video): Unit =
     (repository.save _)

@@ -4,6 +4,6 @@ import tv.codely.scala_http_api.module.video.domain.{Video, VideoRepository}
 
 import scala.concurrent.Future
 
-final class VideosSearcher(repository: VideoRepository) {
+final class VideosSearcher(repository: VideoRepository[Future]) {
   def all(): Future[Seq[Video]] = repository.all()
 }
