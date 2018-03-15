@@ -24,5 +24,5 @@ protected[scala_http_api] trait IntegrationTestCase extends UnitTestCase {
   protected val doobieDbConnection: DoobieDbConnection         = sharedDependencies.doobieDbConnection
   protected val rabbitMqChannelFactory: RabbitMqChannelFactory = new RabbitMqChannelFactory(publisherConfig)
   protected val messagePublisher: MessagePublisher[Id]         = sharedDependencies.messagePublisher
-  protected val logger: Logger                                 = sharedDependencies.logger
+  protected val logger: Logger[Id]                             = sharedDependencies.logger
 }

@@ -3,8 +3,9 @@ package tv.codely.scala_http_api.module.shared.logger.infrastructure.scala_loggi
 import com.typesafe.scalalogging.{Logger => ScalaLogging}
 import org.slf4j.MDC
 import tv.codely.scala_http_api.module.shared.logger.domain.Logger
+import cats.Id
 
-final class ScalaLoggingLogger extends Logger {
+final class ScalaLoggingLogger extends Logger[Id] {
   private val logger = ScalaLogging(name = "codelytv_scala_api")
 
   override def info(message: String, context: Map[String, Any] = Map.empty): Unit =

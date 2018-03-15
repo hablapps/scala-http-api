@@ -25,5 +25,5 @@ final class SharedModuleDependencyContainer(
   private val rabbitMqChannelFactory     = new RabbitMqChannelFactory(publisherConfig)
   val messagePublisher: MessagePublisher[Id] = new RabbitMqMessagePublisher(rabbitMqChannelFactory)
 
-  val logger: Logger = new ScalaLoggingLogger
+  val logger: Logger[Id] = new ScalaLoggingLogger
 }
