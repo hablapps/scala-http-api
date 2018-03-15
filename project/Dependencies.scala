@@ -19,7 +19,8 @@ object Dependencies {
     "com.newmotion"              %% "akka-rabbitmq"           % "5.0.0",
     "ch.qos.logback"             % "logback-classic"          % "1.2.3", // Logging backend implementation
     "com.typesafe.scala-logging" %% "scala-logging"           % "3.7.2", // SLF4J Scala wrapper
-    "net.logstash.logback"       % "logstash-logback-encoder" % "4.11" // Log JSON encoder
+    "net.logstash.logback"       % "logstash-logback-encoder" % "4.11", // Log JSON encoder
+    "org.typelevel"              %% "cats-core"               % "1.0.1"
   )
 
   val test = Seq(

@@ -9,6 +9,7 @@ import tv.codely.scala_http_api.module.shared.logger.infrastructure.scala_loggin
 import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.{DoobieDbConnection, JdbcConfig}
 
 import scala.concurrent.ExecutionContext
+import cats.Id
 
 final class SharedModuleDependencyContainer(
     actorSystemName: String,
@@ -22,7 +23,7 @@ final class SharedModuleDependencyContainer(
   val doobieDbConnection: DoobieDbConnection = new DoobieDbConnection(dbConfig)
 
   private val rabbitMqChannelFactory     = new RabbitMqChannelFactory(publisherConfig)
-  val messagePublisher: MessagePublisher = new RabbitMqMessagePublisher(rabbitMqChannelFactory)
+  val messagePublisher: MessagePublisher[Id] = new RabbitMqMessagePublisher(rabbitMqChannelFactory)
 
   val logger: Logger = new ScalaLoggingLogger
 }

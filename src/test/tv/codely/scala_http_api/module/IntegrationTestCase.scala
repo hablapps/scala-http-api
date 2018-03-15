@@ -8,6 +8,7 @@ import tv.codely.scala_http_api.module.shared.logger.domain.Logger
 import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.{DoobieDbConnection, JdbcConfig}
 
 import scala.concurrent.ExecutionContext
+import cats.Id
 
 protected[scala_http_api] trait IntegrationTestCase extends UnitTestCase {
   private val actorSystemName = "scala-http-api-integration-test"
@@ -22,6 +23,6 @@ protected[scala_http_api] trait IntegrationTestCase extends UnitTestCase {
 
   protected val doobieDbConnection: DoobieDbConnection         = sharedDependencies.doobieDbConnection
   protected val rabbitMqChannelFactory: RabbitMqChannelFactory = new RabbitMqChannelFactory(publisherConfig)
-  protected val messagePublisher: MessagePublisher             = sharedDependencies.messagePublisher
+  protected val messagePublisher: MessagePublisher[Id]         = sharedDependencies.messagePublisher
   protected val logger: Logger                                 = sharedDependencies.logger
 }

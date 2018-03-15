@@ -1,9 +1,7 @@
 package tv.codely.scala_http_api.module.user.domain
 
-import scala.concurrent.Future
+trait UserRepository[P[_]] {
+  def all(): P[Seq[User]]
 
-trait UserRepository {
-  def all(): Future[Seq[User]]
-
-  def save(user: User): Future[Unit]
+  def save(user: User): P[Unit]
 }

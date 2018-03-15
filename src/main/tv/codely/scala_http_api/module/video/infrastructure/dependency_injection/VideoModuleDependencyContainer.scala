@@ -8,10 +8,11 @@ import tv.codely.scala_http_api.module.video.domain.VideoRepository
 import tv.codely.scala_http_api.module.video.infrastructure.repository.DoobieMySqlVideoRepository
 
 import scala.concurrent.ExecutionContext
+import cats.Id
 
 final class VideoModuleDependencyContainer(
     doobieDbConnection: DoobieDbConnection,
-    messagePublisher: MessagePublisher
+    messagePublisher: MessagePublisher[Id]
 )(implicit executionContext: ExecutionContext) {
   val repository: VideoRepository = new DoobieMySqlVideoRepository(doobieDbConnection)
 
