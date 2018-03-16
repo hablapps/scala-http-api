@@ -17,9 +17,9 @@ final class UserRegistrar(repository: UserRepository, publisher: MessagePublishe
 
 import tv.codely.scala_http_api.module.shared.bus.domain.MessagePublisherL
 import tv.codely.scala_http_api.module.user.infrastructure.repository.StateUserRepositoryL
-import tv.codely.scala_http_api.module.user.infrastructure.repository.MockUserRepositoryL
+// import tv.codely.scala_http_api.module.user.infrastructure.repository.MockUserRepositoryL
 import tv.codely.scala_http_api.module.shared.bus.infrastructure.rabbit_mq.StateMessagePublisherL
-import tv.codely.scala_http_api.module.shared.bus.infrastructure.rabbit_mq.MockMessagePublisherL
+// import tv.codely.scala_http_api.module.shared.bus.infrastructure.rabbit_mq.MockMessagePublisherL
 import cats.Monad
 import cats.syntax.all._
 
@@ -43,14 +43,14 @@ object UserRegistrarL {
 
   }
 
-  import tv.codely.scala_http_api.State
+  // import tv.codely.scala_http_api.State
   import tv.codely.scala_http_api.Lens
   case class StateUserRegistrarL(
     userRepository: StateUserRepositoryL,
     messagePublisher: StateMessagePublisherL)
   implicit val userLens = Lens[StateUserRegistrarL, StateUserRepositoryL](_.userRepository, ur => s => s.copy(userRepository = ur))
   implicit val msgLens = Lens[StateUserRegistrarL, StateMessagePublisherL](_.messagePublisher, mp => s => s.copy(messagePublisher = mp))
-  import MockUserRepositoryL._ // Implicit conversion
-  import MockMessagePublisherL._ // Implicit conversion
-  val forState = instance[State[StateUserRegistrarL, ?]]
+  // import MockUserRepositoryL._ // Implicit conversion
+  // import MockMessagePublisherL._ // Implicit conversion
+  // val forState = instance[State[StateUserRegistrarL, ?]]
 }
