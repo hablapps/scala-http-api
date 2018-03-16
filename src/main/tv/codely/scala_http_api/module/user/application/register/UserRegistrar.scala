@@ -45,6 +45,10 @@ object UserRegistrarL {
   case class StateUserRegistrarL(
     userRepository: StateUserRepositoryL,
     messagePublisher: StateMessagePublisherL)
-  implicit val userLens = Lens[StateUserRegistrarL, StateUserRepositoryL](_.userRepository, ur => s => s.copy(userRepository = ur))
-  implicit val msgLens = Lens[StateUserRegistrarL, StateMessagePublisherL](_.messagePublisher, mp => s => s.copy(messagePublisher = mp))
+  implicit val userLens = Lens[StateUserRegistrarL, StateUserRepositoryL](
+    _.userRepository,
+    ur => s => s.copy(userRepository = ur))
+  implicit val msgLens = Lens[StateUserRegistrarL, StateMessagePublisherL](
+    _.messagePublisher,
+    mp => s => s.copy(messagePublisher = mp))
 }

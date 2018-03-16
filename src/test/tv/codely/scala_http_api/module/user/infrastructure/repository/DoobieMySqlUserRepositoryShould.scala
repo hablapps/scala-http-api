@@ -39,7 +39,7 @@ import tv.codely.scala_http_api.module.user.domain.User
 import tv.codely.scala_http_api.module.user.domain.UserRepositoryL
 import tv.codely.scala_http_api.module.user.domain.UserRepositoryL.StateUserRepositoryL
 
-final class StateUserRepositoryLShould extends org.scalatest.WordSpec with org.scalatest.Matchers { // extends UserIntegrationTestCase with BeforeAndAfterEach {
+final class StateUserRepositoryLShould extends org.scalatest.WordSpec with org.scalatest.Matchers {
 
   // TODO(jfuentes): Move this to a trait as they were doing?
   val repository = UserRepositoryL.forState

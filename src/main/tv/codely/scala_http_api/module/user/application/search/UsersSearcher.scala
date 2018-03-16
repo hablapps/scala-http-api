@@ -9,15 +9,15 @@ final class UsersSearcher(repository: UserRepository) {
   def all(): Future[Seq[User]] = repository.all()
 }
 
-import tv.codely.scala_http_api.State
 import tv.codely.scala_http_api.module.user.domain.UserRepositoryL
-import tv.codely.scala_http_api.module.user.domain.UserRepositoryL.StateUserRepositoryL
 
 trait UsersSearcherL[P[_]] {
   def all: P[Seq[User]]
 }
 
-object MockUsersSearcher extends UsersSearcherL[State[StateUserRepositoryL, ?]] {
-  private val userRepository = UserRepositoryL.forState
-  def all: State[StateUserRepositoryL, Seq[User]] = userRepository.all
+object UsersSearcherL {
+  implicit def instance[P[_]](implicit userRepository: UserRepositoryL[P]) =
+    new UsersSearcherL[P] {
+      def all: P[Seq[User]] = userRepository.all
+    }
 }
