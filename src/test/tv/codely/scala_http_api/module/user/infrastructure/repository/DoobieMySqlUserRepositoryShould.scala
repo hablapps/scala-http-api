@@ -36,11 +36,13 @@ final class DoobieMySqlUserRepositoryShould extends UserIntegrationTestCase with
 // TODO(jfuentes): It doesn't make sense this test? It makes sense but we're not testing
 // any business logic, just the state implementation of the API
 import tv.codely.scala_http_api.module.user.domain.User
+import tv.codely.scala_http_api.module.user.domain.UserRepositoryL
+import tv.codely.scala_http_api.module.user.domain.UserRepositoryL.StateUserRepositoryL
 
 final class StateUserRepositoryLShould extends org.scalatest.WordSpec with org.scalatest.Matchers { // extends UserIntegrationTestCase with BeforeAndAfterEach {
 
   // TODO(jfuentes): Move this to a trait as they were doing?
-  val repository = MockUserRepositoryL.forState
+  val repository = UserRepositoryL.forState
 
   "return an empty sequence if there're no users" in {
     val emptyRepository = StateUserRepositoryL(Seq.empty[User])

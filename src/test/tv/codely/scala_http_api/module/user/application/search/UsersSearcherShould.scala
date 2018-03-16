@@ -20,7 +20,7 @@ final class UsersSearcherShould extends UnitTestCase with UserRepositoryMock {
   }
 }
 
-import tv.codely.scala_http_api.module.user.infrastructure.repository.StateUserRepositoryL
+import tv.codely.scala_http_api.module.user.domain.UserRepositoryL.StateUserRepositoryL
 
 final class UsersSearcherLShould extends org.scalatest.WordSpec with org.scalatest.Matchers {
   private val searcher = MockUsersSearcher

@@ -22,15 +22,12 @@ final class UserRegistrarShould extends UnitTestCase with UserRepositoryMock wit
 
 import tv.codely.scala_http_api.State
 import tv.codely.scala_http_api.module.user.domain.User
-import tv.codely.scala_http_api.module.user.infrastructure.repository.StateUserRepositoryL
+import tv.codely.scala_http_api.module.user.domain.UserRepositoryL.StateUserRepositoryL
 import tv.codely.scala_http_api.module.shared.bus.domain.Message
-import tv.codely.scala_http_api.module.shared.bus.infrastructure.rabbit_mq.StateMessagePublisherL
+import tv.codely.scala_http_api.module.shared.bus.domain.MessagePublisherL.StateMessagePublisherL
 import tv.codely.scala_http_api.module.user.application.register.UserRegistrarL.StateUserRegistrarL
 
 final class UserRegistrarLShould extends org.scalatest.WordSpec with org.scalatest.Matchers {
-  // private val registrar = UserRegistrarL.forState // MockUserRegistrarL
-  import tv.codely.scala_http_api.module.user.infrastructure.repository.MockUserRepositoryL._
-  import tv.codely.scala_http_api.module.shared.bus.infrastructure.rabbit_mq.MockMessagePublisherL._
   private val registrar = UserRegistrarL.instance[State[StateUserRegistrarL, ?]]
 
   "register a user" in {

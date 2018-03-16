@@ -10,14 +10,14 @@ final class UsersSearcher(repository: UserRepository) {
 }
 
 import tv.codely.scala_http_api.State
-import tv.codely.scala_http_api.module.user.infrastructure.repository.StateUserRepositoryL
-import tv.codely.scala_http_api.module.user.infrastructure.repository.MockUserRepositoryL
+import tv.codely.scala_http_api.module.user.domain.UserRepositoryL
+import tv.codely.scala_http_api.module.user.domain.UserRepositoryL.StateUserRepositoryL
 
 trait UsersSearcherL[P[_]] {
   def all: P[Seq[User]]
 }
 
 object MockUsersSearcher extends UsersSearcherL[State[StateUserRepositoryL, ?]] {
-  private val userRepository = MockUserRepositoryL.forState
+  private val userRepository = UserRepositoryL.forState
   def all: State[StateUserRepositoryL, Seq[User]] = userRepository.all
 }
