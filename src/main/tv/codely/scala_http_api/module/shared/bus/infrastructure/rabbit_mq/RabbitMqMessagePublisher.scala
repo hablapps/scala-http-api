@@ -34,11 +34,20 @@ final class RabbitMqMessagePublisher(channelFactory: RabbitMqChannelFactory) ext
   }
 }
 
+import tv.codely.scala_http_api.State
+import tv.codely.scala_http_api.Lens
 import tv.codely.scala_http_api.module.shared.bus.domain.MessagePublisherL
 
 case class StateMessagePublisherL(published: Seq[Message])
-object MockMessagePublisherL extends MessagePublisherL[λ[α => StateMessagePublisherL => (α, StateMessagePublisherL)]] {
-  def publish[T <: Message](message: T): StateMessagePublisherL => (Unit, StateMessagePublisherL) = {
-    case StateMessagePublisherL(published) => ((), StateMessagePublisherL(message +: published))
+object MockMessagePublisherL {
+  val forState = new MessagePublisherL[State[StateMessagePublisherL, ?]] {
+    def publish[T <: Message](message: T): State[StateMessagePublisherL, Unit] = State {
+      case StateMessagePublisherL(published) => (StateMessagePublisherL(message +: published), ())
+    }
   }
+
+  implicit def messagePublisherfromLens[S](implicit lens: Lens[S, StateMessagePublisherL]): MessagePublisherL[State[S, ?]] =
+    new MessagePublisherL[State[S, ?]] {
+      def publish[T <: Message](message: T): State[S, Unit] = forState.publish(message).lift
+    }
 }

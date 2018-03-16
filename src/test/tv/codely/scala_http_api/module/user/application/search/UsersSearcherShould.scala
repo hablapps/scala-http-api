@@ -32,7 +32,7 @@ final class UsersSearcherLShould extends org.scalatest.WordSpec with org.scalate
 
     val initialState = StateUserRepositoryL(existingUsers)
 
-    val (resOutput, finalState) = searcher.all(initialState)
+    val (finalState, resOutput) = searcher.all.run(initialState)
 
     resOutput shouldBe existingUsers
     finalState shouldBe initialState

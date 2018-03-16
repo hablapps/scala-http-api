@@ -24,9 +24,10 @@ import tv.codely.scala_http_api.module.user.domain.User
 import tv.codely.scala_http_api.module.user.infrastructure.repository.StateUserRepositoryL
 import tv.codely.scala_http_api.module.shared.bus.domain.Message
 import tv.codely.scala_http_api.module.shared.bus.infrastructure.rabbit_mq.StateMessagePublisherL
+import tv.codely.scala_http_api.module.user.application.register.UserRegistrarL.StateUserRegistrarL
 
 final class UserRegistrarLShould extends org.scalatest.WordSpec with org.scalatest.Matchers {
-  private val registrar = MockUserRegistrarL
+  private val registrar = UserRegistrarL.forState // MockUserRegistrarL
 
   "register a user" in {
     val user           = UserStub.random
@@ -36,10 +37,10 @@ final class UserRegistrarLShould extends org.scalatest.WordSpec with org.scalate
       StateUserRepositoryL(Seq.empty[User]),
       StateMessagePublisherL(Seq.empty[Message]))
 
-    val (resOutput, StateUserRegistrarL(
+    val (StateUserRegistrarL(
         StateUserRepositoryL(resUsers),
-        StateMessagePublisherL(resMessages))) =
-      registrar.register(user.id, user.name)(initialState)
+        StateMessagePublisherL(resMessages)), resOutput) =
+      registrar.register(user.id, user.name).run(initialState)
 
     resOutput shouldBe (())
     resUsers shouldBe Seq(user)

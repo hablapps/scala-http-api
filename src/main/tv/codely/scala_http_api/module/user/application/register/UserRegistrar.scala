@@ -42,19 +42,15 @@ object UserRegistrarL {
     }
 
   }
-}
 
-case class StateUserRegistrarL(userRepository: StateUserRepositoryL, messagePublisher: StateMessagePublisherL)
-object MockUserRegistrarL
-    extends UserRegistrarL[λ[α => StateUserRegistrarL => (α, StateUserRegistrarL)]] {
-  private val mockUserRepository = MockUserRepositoryL.apply
-  def register(id: UserId, name: UserName): StateUserRegistrarL => (Unit, StateUserRegistrarL) = {
-    case StateUserRegistrarL(userRepository, messagePublisher) =>
-      val user = User(id, name)
-
-      val (_, userRepository2) = mockUserRepository.save(user)(userRepository)
-      val (_, messagePublisher2) = MockMessagePublisherL.publish(UserRegistered(user))(messagePublisher)
-
-      ((), StateUserRegistrarL(userRepository2, messagePublisher2))
-  }
+  import tv.codely.scala_http_api.State
+  import tv.codely.scala_http_api.Lens
+  case class StateUserRegistrarL(
+    userRepository: StateUserRepositoryL,
+    messagePublisher: StateMessagePublisherL)
+  implicit val userLens = Lens[StateUserRegistrarL, StateUserRepositoryL](_.userRepository, ur => s => s.copy(userRepository = ur))
+  implicit val msgLens = Lens[StateUserRegistrarL, StateMessagePublisherL](_.messagePublisher, mp => s => s.copy(messagePublisher = mp))
+  import MockUserRepositoryL._ // Implicit conversion
+  import MockMessagePublisherL._ // Implicit conversion
+  val forState = instance[State[StateUserRegistrarL, ?]]
 }

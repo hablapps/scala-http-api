@@ -40,11 +40,11 @@ import tv.codely.scala_http_api.module.user.domain.User
 final class StateUserRepositoryLShould extends org.scalatest.WordSpec with org.scalatest.Matchers { // extends UserIntegrationTestCase with BeforeAndAfterEach {
 
   // TODO(jfuentes): Move this to a trait as they were doing?
-  val repository = MockUserRepositoryL.apply
+  val repository = MockUserRepositoryL.forState
 
   "return an empty sequence if there're no users" in {
     val emptyRepository = StateUserRepositoryL(Seq.empty[User])
-    val (resUsers, resState) = repository.all(emptyRepository)
+    val (resState, resUsers) = repository.all.run(emptyRepository)
     resUsers shouldBe Seq.empty[User]
     resState shouldBe emptyRepository
   }
@@ -54,7 +54,7 @@ final class StateUserRepositoryLShould extends org.scalatest.WordSpec with org.s
 
     val initialState = StateUserRepositoryL(users)
 
-    val (resUsers, resState) = repository.all(initialState)
+    val (resState, resUsers) = repository.all.run(initialState)
 
     resUsers shouldBe users
     resState shouldBe initialState
