@@ -3,15 +3,13 @@ package tv.codely.scala_http_api.module.user.application.register
 import tv.codely.scala_http_api.module.shared.bus.domain.MessagePublisher
 import tv.codely.scala_http_api.module.shared.user.domain.UserId
 import tv.codely.scala_http_api.module.user.domain._
-import scala.concurrent.Future
-import cats.Id
+import cats.Apply, cats.syntax.apply._
 
-final class UserRegistrar(repository: UserRepository[Future], publisher: MessagePublisher[Id]) {
-  def register(id: UserId, name: UserName): Unit = {
+final class UserRegistrar[P[_]: Apply](repository: UserRepository[P], publisher: MessagePublisher[P]) {
+  def register(id: UserId, name: UserName): P[Unit] = {
     val user = User(id, name)
 
-    repository.save(user)
-
+    repository.save(user) *>
     publisher.publish(UserRegistered(user))
   }
 }
