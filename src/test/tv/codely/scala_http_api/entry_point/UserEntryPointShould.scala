@@ -8,6 +8,8 @@ import tv.codely.scala_http_api.module.user.domain.UserStub
 import tv.codely.scala_http_api.module.user.infrastructure.marshaller.UserJsValueMarshaller
 
 final class UserEntryPointShould extends AcceptanceSpec with BeforeAndAfterEach {
+  // TODO(jfuentes): Integration tests, you need to deal with stuff like this
+  // to be able to test your application
   private def cleanUsersTable(): Unit =
     sql"TRUNCATE TABLE users".update.run
       .transact(doobieDbConnection.transactor)
@@ -20,6 +22,7 @@ final class UserEntryPointShould extends AcceptanceSpec with BeforeAndAfterEach 
     cleanUsersTable()
   }
 
+  // TODO(jfuentes): Only checks response status, the user may not be created at all
   "save a user" in posting(
     "/users",
     """
@@ -35,6 +38,7 @@ final class UserEntryPointShould extends AcceptanceSpec with BeforeAndAfterEach 
   "return all the users" in {
     val users = UserStub.randomSeq
 
+    // NOTE(jfuentes): futureValue is like await (from trait org.scalatest.concurrent.ScalaFutures)
     users.foreach(u => userDependencies.repository.save(u).futureValue)
 
     getting("/users") {

@@ -60,6 +60,7 @@ object Configuration {
       "-Ywarn-unused:privates", // Warn if a private member is unused.
       "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
     ),
+    addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3"),
     Compile / console / scalacOptions --= Seq("-Ywarn-unused:imports", "-Xfatal-warnings"), // Leave the console REPL usable :P
     Compile / run / scalacOptions -= "-Xcheckinit",             // Expensive to run in prod
     Test / compile / scalacOptions --= Seq("-Xfatal-warnings"), // Due to deprecated ETA expansion used with ScalaMock

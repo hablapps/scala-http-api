@@ -33,3 +33,12 @@ final class RabbitMqMessagePublisher(channelFactory: RabbitMqChannelFactory) ext
     channel.basicPublish(exchange, routingKey, persistToDisk, messageBytes)
   }
 }
+
+import tv.codely.scala_http_api.module.shared.bus.domain.MessagePublisherL
+
+case class StateMessagePublisherL(published: Seq[Message])
+object MockMessagePublisherL extends MessagePublisherL[λ[α => StateMessagePublisherL => (α, StateMessagePublisherL)]] {
+  def publish[T <: Message](message: T): StateMessagePublisherL => (Unit, StateMessagePublisherL) = {
+    case StateMessagePublisherL(published) => ((), StateMessagePublisherL(message +: published))
+  }
+}

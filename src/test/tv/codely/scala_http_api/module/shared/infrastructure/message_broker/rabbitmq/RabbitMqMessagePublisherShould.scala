@@ -34,15 +34,18 @@ final class RabbitMqMessagePublisherShould extends IntegrationTestCase with Even
 
   private def extractConsumedMessagesHandler(consumedMessage: Message): Boolean = {
     consumedMessages.synchronized(consumedMessages += consumedMessage)
+    // TODO(jfuentes): This two lines are weird as well.
     val handledSuccessfully = true
     handledSuccessfully
   }
 
+  // TODO(jfuentes): Weird, does this throw an exception and makes the test fail if the queue is not empty?
   private def waitUntilQueueHasMessages(): Unit = eventually(
     if (videoCreatedQueueConsumer.hasMessagesToConsume) ()
     else throw new RuntimeException("Queue has no messages. Waiting a little bit more…")
   )
 
+  // TODO(jfuentes): Weird, does this throw an exception and makes the test fail if the queue is not empty?
   private def waitUntilQueueIsEmpty(): Unit = eventually(
     if (videoCreatedQueueConsumer.isEmpty) {
       // If the RabbitMQ queue doesn't has any message, it doesn't mean we're not processing the last ones.

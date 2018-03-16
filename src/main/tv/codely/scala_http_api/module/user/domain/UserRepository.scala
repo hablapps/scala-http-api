@@ -7,3 +7,8 @@ trait UserRepository {
 
   def save(user: User): Future[Unit]
 }
+
+trait UserRepositoryL[P[_]] {
+  def all: P[Seq[User]]
+  def save(user: User): P[Unit]
+}

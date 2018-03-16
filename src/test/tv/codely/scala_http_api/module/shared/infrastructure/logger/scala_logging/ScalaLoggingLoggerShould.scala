@@ -7,6 +7,9 @@ import tv.codely.scala_http_api.module.IntegrationTestCase
 
 import scala.io.Source
 
+// TODO(jfuentes): This is not only testing the logger API but also the Scala logger implementation
+// That part is out of our program, it shouldn't be tested. To test our API we don't need an
+// integration test, it should be pure.
 final class ScalaLoggingLoggerShould extends IntegrationTestCase {
   private val appLogFilePath = "var/log/app_log.json"
 

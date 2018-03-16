@@ -1,6 +1,7 @@
 package tv.codely.scala_http_api.module.shared.logger.domain
 
 trait Logger {
+  // TODO(jfuentes): Could reduce the API to just 3 methods?
   def info(message: String, context: Map[String, Any] = Map.empty): Unit
   def warn(message: String, context: Map[String, Any] = Map.empty): Unit
   def error(message: String, context: Map[String, Any] = Map.empty): Unit
