@@ -15,6 +15,6 @@ final class UserModuleDependencyContainer(
 )(implicit executionContext: ExecutionContext) {
   val repository: UserRepository[Future] = new DoobieMySqlUserRepository(doobieDbConnection)
 
-  val usersSearcher: UsersSearcher = new UsersSearcher(repository)
+  val usersSearcher: UsersSearcher[Future] = new UsersSearcher(repository)
   val userRegistrar: UserRegistrar[Future] = new UserRegistrar(repository, messagePublisher)
 }
