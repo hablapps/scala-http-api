@@ -6,7 +6,8 @@ import akka.http.scaladsl.server.Directives.complete
 import spray.json.DefaultJsonProtocol
 import tv.codely.scala_http_api.module.video.application.search.VideosSearcher
 import tv.codely.scala_http_api.module.video.infrastructure.marshaller.VideoJsonFormatMarshaller._
+import scala.concurrent.Future
 
-final class VideoGetController(searcher: VideosSearcher) extends SprayJsonSupport with DefaultJsonProtocol {
+final class VideoGetController(searcher: VideosSearcher[Future]) extends SprayJsonSupport with DefaultJsonProtocol {
   def get(): StandardRoute = complete(searcher.all())
 }
