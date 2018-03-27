@@ -1,4 +1,5 @@
-package tv.codely.scala_http_api.module.video.infrastructure.dependency_injection
+package tv.codely.scala_http_api
+package module.video.infrastructure.dependency_injection
 
 import tv.codely.scala_http_api.module.shared.bus.domain.MessagePublisher
 import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.DoobieDbConnection
@@ -17,5 +18,5 @@ final class VideoModuleDependencyContainer(
   val repository: VideoRepository[Future] = new DoobieMySqlVideoRepository(doobieDbConnection)
 
   val videosSearcher: VideosSearcher = new VideosSearcher(repository)
-  val videoCreator: VideoCreator     = new VideoCreator(repository, messagePublisher)
+  val videoCreator: VideoCreator[Future]     = new VideoCreator(repository, messagePublisher)
 }
