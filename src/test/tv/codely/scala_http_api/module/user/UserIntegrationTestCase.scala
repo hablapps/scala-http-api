@@ -1,4 +1,5 @@
-package tv.codely.scala_http_api.module.user
+package tv.codely.scala_http_api
+package module.user
 
 import tv.codely.scala_http_api.module.IntegrationTestCase
 import tv.codely.scala_http_api.module.user.domain.UserRepository

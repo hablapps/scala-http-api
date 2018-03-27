@@ -1,4 +1,5 @@
-package tv.codely.scala_http_api.entry_point
+package tv.codely.scala_http_api
+package entry_point
 
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.testkit.ScalatestRouteTest

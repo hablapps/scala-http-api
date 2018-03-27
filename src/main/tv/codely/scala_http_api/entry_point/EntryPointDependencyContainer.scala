@@ -5,11 +5,12 @@ import tv.codely.scala_http_api.entry_point.controller.user.{UserGetController, 
 import tv.codely.scala_http_api.entry_point.controller.video.{VideoGetController, VideoPostController}
 import tv.codely.scala_http_api.module.user.infrastructure.dependency_injection.UserModuleDependencyContainer
 import tv.codely.scala_http_api.module.video.infrastructure.dependency_injection.VideoModuleDependencyContainer
+import scala.concurrent.ExecutionContext
 
 final class EntryPointDependencyContainer(
     userDependencies: UserModuleDependencyContainer,
     videoDependencies: VideoModuleDependencyContainer
-) {
+)(implicit executionContext: ExecutionContext) {
   val statusGetController = new StatusGetController
 
   val userGetController  = new UserGetController(userDependencies.usersSearcher)
