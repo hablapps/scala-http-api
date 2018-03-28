@@ -2,14 +2,13 @@ package tv.codely.scala_http_api.module.user.application.register
 
 import tv.codely.scala_http_api.State
 import tv.codely.scala_http_api.module.user.domain.User
-import tv.codely.scala_http_api.module.user.infrastructure.repository.UserRepositoryL,UserRepositoryL.StateUserRepositoryL
+import tv.codely.scala_http_api.module.user.infrastructure.repository.StateUserRepositoryL, StateUserRepositoryL._
 import tv.codely.scala_http_api.module.shared.bus.domain.Message
-import tv.codely.scala_http_api.module.shared.infrastructure.MessagePublisherL.StateMessagePublisherL
-import tv.codely.scala_http_api.module.user.application.register.UserRegistrarL.StateUserRegistrarL
+import tv.codely.scala_http_api.module.shared.infrastructure.StateMessagePublisherL, StateMessagePublisherL._
 import tv.codely.scala_http_api.module.user.domain.{UserRegisteredStub, UserStub}
 
 final class UserRegistrarSpec extends org.scalatest.WordSpec with org.scalatest.Matchers {
-  private val registrar = UserRegistrarL.instance[State[StateUserRegistrarL, ?]]
+  private val registrar = UserRegistrar.instance[State[StateUserRegistrarL, ?]]
 
   "register a user" in {
     val user           = UserStub.random

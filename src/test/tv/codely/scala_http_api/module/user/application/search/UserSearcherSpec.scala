@@ -1,11 +1,11 @@
 package tv.codely.scala_http_api.module.user.application.search
 
 import tv.codely.scala_http_api.State
-import tv.codely.scala_http_api.module.user.infrastructure.repository.UserRepositoryL,UserRepositoryL.StateUserRepositoryL
+import tv.codely.scala_http_api.module.user.infrastructure.repository.StateUserRepositoryL
 import tv.codely.scala_http_api.module.user.domain.UserStub
 
 final class UsersSearcherSpec extends org.scalatest.WordSpec with org.scalatest.Matchers {
-  private val searcher = UsersSearcherL.instance[State[StateUserRepositoryL, ?]]
+  private val searcher = UsersSearcher.instance[State[StateUserRepositoryL, ?]]
 
   "search all existing users" in {
     val existingUser        = UserStub.random

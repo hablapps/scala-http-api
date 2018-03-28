@@ -2,20 +2,15 @@ package tv.codely.scala_http_api.module.user.infrastructure.repository
 
 import tv.codely.scala_http_api.module.user.domain._
 
-trait UserRepositoryL[P[_]] {
-  def all: P[Seq[User]]
-  def save(user: User): P[Unit]
-}
+case class StateUserRepositoryL(users: Seq[User])
 
-object UserRepositoryL {
+object StateUserRepositoryL {
 
   import tv.codely.scala_http_api.State
   import tv.codely.scala_http_api.Lens
 
-  case class StateUserRepositoryL(users: Seq[User])
-
-  val forState: UserRepositoryL[State[StateUserRepositoryL, ?]] =
-    new UserRepositoryL[State[StateUserRepositoryL, ?]] {
+  val forState: UserRepository[State[StateUserRepositoryL, ?]] =
+    new UserRepository[State[StateUserRepositoryL, ?]] {
       def all: State[StateUserRepositoryL, Seq[User]] = State {
         case state@StateUserRepositoryL(users) => (state, users)
       }
@@ -24,8 +19,8 @@ object UserRepositoryL {
       }
     }
 
-  implicit def userRepositoryfromLens[S](implicit lens: Lens[S, StateUserRepositoryL]): UserRepositoryL[State[S, ?]] =
-    new UserRepositoryL[State[S, ?]] {
+  implicit def userRepositoryfromLens[S](implicit lens: Lens[S, StateUserRepositoryL]): UserRepository[State[S, ?]] =
+    new UserRepository[State[S, ?]] {
       def all: State[S, Seq[User]] = forState.all.lift
       def save(user: User): State[S, Unit] = forState.save(user).lift
     }

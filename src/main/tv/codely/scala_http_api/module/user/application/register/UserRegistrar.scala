@@ -13,3 +13,9 @@ final class UserRegistrar[P[_]](repository: UserRepository[P], publisher: Messag
     publisher.publish(UserRegistered(user))
   }
 }
+
+object UserRegistrar{
+  def instance[P[_]](implicit
+    repository: UserRepository[P],
+    publisher: MessagePublisher[P]) = new UserRegistrar(repository, publisher)
+}
