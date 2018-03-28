@@ -19,4 +19,3 @@ final class UserRegistrarShould extends UnitTestCase with UserRepositoryMock wit
     registrar.register(user.id, user.name).shouldBe(())
   }
 }
-

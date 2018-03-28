@@ -5,7 +5,6 @@ import tv.codely.scala_http_api.module.user.domain.UserStub
 import doobie.implicits._
 import org.scalatest.BeforeAndAfterEach
 
-// TODO(jfuentes): is really necessary to make this an integration test?
 final class DoobieMySqlUserRepositoryShould extends UserIntegrationTestCase with BeforeAndAfterEach {
   private def cleanUsersTable(): Unit =
     sql"TRUNCATE TABLE users".update.run
