@@ -6,19 +6,19 @@ import tv.codely.scala_http_api.module.shared.infrastructure.StateMessagePublish
 import tv.codely.scala_http_api.module.shared.user.domain._
 import tv.codely.scala_http_api.module.user.domain._
 
-case class StateUserRegistrarL(
+case class StateUserRegisterL(
   userRepository: StateUserRepositoryL,
   messagePublisher: StateMessagePublisherL)
 
-object StateUserRegistrarL{
+object StateUserRegisterL{
 
   import tv.codely.scala_http_api.Lens
 
-  implicit val userLens = Lens[StateUserRegistrarL, StateUserRepositoryL](
+  implicit val userLens = Lens[StateUserRegisterL, StateUserRepositoryL](
     _.userRepository,
     ur => s => s.copy(userRepository = ur))
 
-  implicit val msgLens = Lens[StateUserRegistrarL, StateMessagePublisherL](
+  implicit val msgLens = Lens[StateUserRegisterL, StateMessagePublisherL](
     _.messagePublisher,
     mp => s => s.copy(messagePublisher = mp))
 }

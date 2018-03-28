@@ -5,7 +5,7 @@ import tv.codely.scala_http_api.module.shared.user.domain.UserId
 import tv.codely.scala_http_api.module.user.domain._
 import cats.Apply, cats.syntax.apply._
 
-final class UserRegistrar[P[_]](repository: UserRepository[P], publisher: MessagePublisher[P]) {
+final class UserRegister[P[_]](repository: UserRepository[P], publisher: MessagePublisher[P]) {
   def register(id: UserId, name: UserName)(implicit Ap: Apply[P]): P[Unit] = {
     val user = User(id, name)
 
@@ -14,8 +14,8 @@ final class UserRegistrar[P[_]](repository: UserRepository[P], publisher: Messag
   }
 }
 
-object UserRegistrar{
+object UserRegister{
   def instance[P[_]](implicit
     repository: UserRepository[P],
-    publisher: MessagePublisher[P]) = new UserRegistrar(repository, publisher)
+    publisher: MessagePublisher[P]) = new UserRegister(repository, publisher)
 }

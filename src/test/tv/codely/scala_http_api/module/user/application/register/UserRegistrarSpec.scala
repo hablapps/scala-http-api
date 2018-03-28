@@ -7,18 +7,18 @@ import tv.codely.scala_http_api.module.shared.bus.domain.Message
 import tv.codely.scala_http_api.module.shared.infrastructure.StateMessagePublisherL, StateMessagePublisherL._
 import tv.codely.scala_http_api.module.user.domain.{UserRegisteredStub, UserStub}
 
-final class UserRegistrarSpec extends org.scalatest.WordSpec with org.scalatest.Matchers {
-  private val registrar = UserRegistrar.instance[State[StateUserRegistrarL, ?]]
+final class UserRegisterSpec extends org.scalatest.WordSpec with org.scalatest.Matchers {
+  private val registrar = UserRegister.instance[State[StateUserRegisterL, ?]]
 
   "register a user" in {
     val user           = UserStub.random
     val userRegistered = UserRegisteredStub(user)
 
-    val initialState = StateUserRegistrarL(
+    val initialState = StateUserRegisterL(
       StateUserRepositoryL(Seq.empty[User]),
       StateMessagePublisherL(Seq.empty[Message]))
 
-    val (StateUserRegistrarL(
+    val (StateUserRegisterL(
         StateUserRepositoryL(resUsers),
         StateMessagePublisherL(resMessages)), resOutput) =
       registrar.register(user.id, user.name).run(initialState)

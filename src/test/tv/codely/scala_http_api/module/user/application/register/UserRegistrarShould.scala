@@ -9,8 +9,8 @@ import tv.codely.scala_http_api.module.user.infrastructure.repository.UserReposi
 import scala.concurrent.{Future, ExecutionContext}, ExecutionContext.Implicits.global
 import cats.instances.future._
 
-final class UserRegistrarShould extends UnitTestCase with UserRepositoryMock with MessagePublisherMock{
-  private val registrar = new UserRegistrar[Future](repository, messagePublisher)
+final class UserRegisterShould extends UnitTestCase with UserRepositoryMock with MessagePublisherMock{
+  private val registrar = new UserRegister[Future](repository, messagePublisher)
 
   "register a user" in {
     val user           = UserStub.random
