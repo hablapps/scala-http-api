@@ -35,7 +35,17 @@ protected[entry_point] abstract class AcceptanceSpec
     sharedDependencies.messagePublisher
   )(sharedDependencies.executionContext)
 
-  private val routes = new Routes(new EntryPointDependencyContainer(userDependencies, videoDependencies))
+  import tv.codely.scala_http_api.module.user.infrastructure.repository.DoobieMySqlUserRepository
+  import tv.codely.scala_http_api.module.video.infrastructure.repository.DoobieMySqlVideoRepository
+  import scala.concurrent.Future, cats.instances.future._
+
+  implicit val userDoobieRepo = new DoobieMySqlUserRepository(sharedDependencies.doobieDbConnection)
+  implicit val videoDoobierepo = new DoobieMySqlVideoRepository(sharedDependencies.doobieDbConnection)
+  implicit val publisherRabbit: module.shared.bus.domain.MessagePublisher[Future] = sharedDependencies.messagePublisher
+  val doobiePublisherSystem = module.SystemRepoPublisher.apply[Future]
+  val container = new SystemController()(doobiePublisherSystem,implicitly)
+
+  private val routes = new Routes(container)
 
   protected val doobieDbConnection: DoobieDbConnection = sharedDependencies.doobieDbConnection
 

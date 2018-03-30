@@ -8,8 +8,8 @@ import tv.codely.scala_http_api.module.video.infrastructure.repository.VideoRepo
 import scala.concurrent.{Future, ExecutionContext}, ExecutionContext.Implicits.global
 import cats.instances.future._
 
-final class VideoCreatorRepoShould extends UnitTestCase with VideoRepositoryMock with MessagePublisherMock {
-  private val creator = new VideoCreatorRepo[Future](repository, messagePublisher)
+final class VideoCreatorRepoPublisherShould extends UnitTestCase with VideoRepositoryMock with MessagePublisherMock {
+  private val creator = VideoCreatorRepoPublisher[Future]()(repository, messagePublisher, implicitly)
 
   "save a video" in {
     val video        = VideoStub.random

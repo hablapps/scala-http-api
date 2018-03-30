@@ -10,7 +10,7 @@ import scala.concurrent.{Future, ExecutionContext}, ExecutionContext.Implicits.g
 import cats.instances.future._
 
 final class UserRegisterShould extends UnitTestCase with UserRepositoryMock with MessagePublisherMock{
-  private val registrar = new UserRegisterRepoPublisher[Future](repository, messagePublisher)
+  private val registrar = UserRegisterRepoPublisher[Future]()(repository, messagePublisher,implicitly)
 
   "register a user" in {
     val user           = UserStub.random

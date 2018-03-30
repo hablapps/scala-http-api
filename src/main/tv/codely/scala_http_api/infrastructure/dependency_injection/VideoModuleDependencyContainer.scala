@@ -3,20 +3,20 @@ package module.video.infrastructure.dependency_injection
 
 import tv.codely.scala_http_api.module.shared.bus.domain.MessagePublisher
 import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.DoobieDbConnection
-import tv.codely.scala_http_api.module.video.application.create.{VideoCreator, VideoCreatorRepo}
+import tv.codely.scala_http_api.module.video.application.create.{VideoCreator, VideoCreatorRepoPublisher}
 import tv.codely.scala_http_api.module.video.application.search.VideosSearcherRepo
 import tv.codely.scala_http_api.module.video.domain.VideoRepository
 import tv.codely.scala_http_api.module.video.infrastructure.repository.DoobieMySqlVideoRepository
 
 import scala.concurrent.{Future, ExecutionContext}
-import cats.Id, cats.instances.future._
+import cats.instances.future._
 
-final class VideoModuleDependencyContainer(
+final class VideoModuleDependencyContainer( 
     doobieDbConnection: DoobieDbConnection,
-    messagePublisher: MessagePublisher[Id]
-)(implicit executionContext: ExecutionContext) {
-  val repository: VideoRepository[Future] = new DoobieMySqlVideoRepository(doobieDbConnection)
+    messagePublisher: MessagePublisher[Future])(implicit
+    executionContext: ExecutionContext) {
+  implicit val repository: VideoRepository[Future] = new DoobieMySqlVideoRepository(doobieDbConnection)
 
-  val videosSearcher: VideosSearcherRepo[Future] = new VideosSearcherRepo(repository)
-  val videoCreator: VideoCreator[Future]     = new VideoCreatorRepo[Future](repository, messagePublisher)
+  val videosSearcher: VideosSearcherRepo[Future] = VideosSearcherRepo[Future]()(repository)
+  val videoCreator: VideoCreator[Future]     = VideoCreatorRepoPublisher[Future]()(repository, messagePublisher, implicitly)
 }

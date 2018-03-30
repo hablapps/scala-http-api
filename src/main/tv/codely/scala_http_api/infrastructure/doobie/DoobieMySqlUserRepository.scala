@@ -7,8 +7,11 @@ import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.
 
 import scala.concurrent.{ExecutionContext, Future}
 
-final class DoobieMySqlUserRepository(db: DoobieDbConnection)(implicit executionContext: ExecutionContext)
-    extends UserRepository[Future] {
+final class DoobieMySqlUserRepository(
+  db: DoobieDbConnection)(implicit 
+  executionContext: ExecutionContext)
+extends UserRepository[Future] {
+
   override def all(): Future[Seq[User]] = {
     db.read(sql"SELECT user_id, name FROM users".query[User].to[Seq])
   }

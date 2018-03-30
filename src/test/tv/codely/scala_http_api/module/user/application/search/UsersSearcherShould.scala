@@ -5,7 +5,7 @@ import tv.codely.scala_http_api.module.user.domain.UserStub
 import tv.codely.scala_http_api.module.user.infrastructure.repository.UserRepositoryMock
 
 final class UsersSearcherRepoShould extends UnitTestCase with UserRepositoryMock {
-  private val searcher = new UsersSearcherRepo(repository)
+  private val searcher = new UsersSearcherRepo()(repository)
 
   "search all existing users" in {
     val existingUser        = UserStub.random

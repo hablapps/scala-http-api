@@ -5,9 +5,9 @@ import tv.codely.scala_http_api.module.shared.user.domain.UserId
 import tv.codely.scala_http_api.module.video.domain._
 import cats.Apply, cats.syntax.apply._
 
-final class VideoCreatorRepo[P[_]](
+final case class VideoCreatorRepoPublisher[P[_]]()(implicit
   repository: VideoRepository[P], 
-  publisher: MessagePublisher[P])(implicit
+  publisher: MessagePublisher[P],
   Ap: Apply[P])
 extends VideoCreator[P]{
   def create(

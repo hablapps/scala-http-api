@@ -8,7 +8,7 @@ import spray.json.JsValue
 
 import scala.concurrent.duration._
 
-final class Routes(container: EntryPointDependencyContainer) {
+final class Routes(container: SystemController) {
   private val status = get {
     path("status")(container.statusGetController.get())
   }

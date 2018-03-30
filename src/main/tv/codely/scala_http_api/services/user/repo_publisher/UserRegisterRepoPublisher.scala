@@ -5,9 +5,9 @@ import tv.codely.scala_http_api.module.shared.user.domain.UserId
 import tv.codely.scala_http_api.module.user.domain._
 import cats.Apply, cats.syntax.apply._
 
-final class UserRegisterRepoPublisher[P[_]](
+final case class UserRegisterRepoPublisher[P[_]]()(implicit
   repository: UserRepository[P], 
-  publisher: MessagePublisher[P])(implicit
+  publisher: MessagePublisher[P],
   Ap: Apply[P]) 
 extends UserRegister[P]{
 
@@ -17,12 +17,4 @@ extends UserRegister[P]{
     repository.save(user) *>
     publisher.publish(UserRegistered(user))
   }
-}
-
-object UserRegisterRepoPublisher{
-  def instance[P[_]](implicit
-      repository: UserRepository[P],
-      publisher: MessagePublisher[P],
-      Ap: Apply[P]) = 
-    new UserRegisterRepoPublisher(repository, publisher)
 }
