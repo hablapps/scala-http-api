@@ -7,8 +7,8 @@ import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.
 
 import scala.concurrent.{ExecutionContext, Future}
 
-final class DoobieMySqlUserRepository(
-  db: DoobieDbConnection)(implicit 
+final case class DoobieMySqlUserRepository()(implicit 
+  db: DoobieDbConnection,
   executionContext: ExecutionContext)
 extends UserRepository[Future] {
 

@@ -6,8 +6,12 @@ import tv.codely.scala_http_api.entry_point.controller.user.{UserGetController, 
 import tv.codely.scala_http_api.entry_point.controller.video.{VideoGetController, VideoPostController}
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
+import akka.actor.ActorSystem
+import akka.stream.ActorMaterializer
+import akka.http.scaladsl.Http
+import scala.io.StdIn
 
-final class SystemController(implicit 
+final case class SystemController()(implicit 
   system: System[Future],
   executionContext: ExecutionContext
 ){
@@ -21,14 +25,8 @@ final class SystemController(implicit
 
   val routes = new Routes(this)
 
-  import akka.actor.ActorSystem
-
   def run(serverConfig: HttpServerConfig)(implicit actorSystem: ActorSystem): Unit = {
-    import akka.stream.ActorMaterializer
-    import akka.http.scaladsl.Http
-    import scala.io.StdIn
-
-    implicit val materializer: ActorMaterializer    = ActorMaterializer()
+    implicit val materializer: ActorMaterializer = ActorMaterializer()
 
     val host = serverConfig.host
     val port = serverConfig.port

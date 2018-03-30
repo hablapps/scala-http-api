@@ -35,7 +35,7 @@ final class UserEntryPointShould extends AcceptanceSpec with BeforeAndAfterEach 
   "return all the users" in {
     val users = UserStub.randomSeq
 
-    users.foreach(u => userDependencies.repository.save(u).futureValue)
+    users.foreach(u => doobieUserRepo.save(u).futureValue)
 
     getting("/users") {
       status shouldBe StatusCodes.OK

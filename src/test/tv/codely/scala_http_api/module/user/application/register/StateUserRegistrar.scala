@@ -1,24 +1,21 @@
 package tv.codely.scala_http_api.module.user.application.register
 
-import tv.codely.scala_http_api.module.shared.bus.domain.MessagePublisher
-import tv.codely.scala_http_api.module.user.infrastructure.repository.StateUserRepositoryL
-import tv.codely.scala_http_api.module.shared.infrastructure.StateMessagePublisherL
-import tv.codely.scala_http_api.module.shared.user.domain._
-import tv.codely.scala_http_api.module.user.domain._
+import tv.codely.scala_http_api.module.user.infrastructure.repository.StateUserRepository
+import tv.codely.scala_http_api.module.shared.infrastructure.StateMessagePublisher
 
-case class StateUserRegisterL(
-  userRepository: StateUserRepositoryL,
-  messagePublisher: StateMessagePublisherL)
+case class StateUserRegister(
+  userRepository: StateUserRepository,
+  messagePublisher: StateMessagePublisher)
 
-object StateUserRegisterL{
+object StateUserRegister{
 
   import tv.codely.scala_http_api.Lens
 
-  implicit val userLens = Lens[StateUserRegisterL, StateUserRepositoryL](
+  implicit val userLens = Lens[StateUserRegister, StateUserRepository](
     _.userRepository,
     ur => s => s.copy(userRepository = ur))
 
-  implicit val msgLens = Lens[StateUserRegisterL, StateMessagePublisherL](
+  implicit val msgLens = Lens[StateUserRegister, StateMessagePublisher](
     _.messagePublisher,
     mp => s => s.copy(messagePublisher = mp))
 }

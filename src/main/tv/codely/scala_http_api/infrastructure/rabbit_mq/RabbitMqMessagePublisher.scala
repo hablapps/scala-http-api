@@ -3,11 +3,11 @@ package tv.codely.scala_http_api.module.shared.bus.infrastructure.rabbit_mq
 import com.rabbitmq.client.MessageProperties
 import tv.codely.scala_http_api.module.shared.bus.domain.{Message, MessagePublisher}
 import tv.codely.scala_http_api.module.shared.marshaller.infrastructure.MessageJsonFormatMarshaller.MessageMarshaller
+import com.rabbitmq.client.Channel
 import cats.Id
 
-final class RabbitMqMessagePublisher(channelFactory: RabbitMqChannelFactory) extends MessagePublisher[Id] {
-  private val channel = channelFactory.channel
-
+final class RabbitMqMessagePublisher(channel: Channel) extends MessagePublisher[Id] {
+  
   // Use the default nameless exchange in order to route the published messages based on
   // the mapping between the message routing key and the queue names.
   // Example: A message with routing key "codelytv_scala_api.video_created"
@@ -34,3 +34,13 @@ final class RabbitMqMessagePublisher(channelFactory: RabbitMqChannelFactory) ext
     channel.basicPublish(exchange, routingKey, persistToDisk, messageBytes)
   }
 }
+
+object RabbitMqMessagePublisher{
+  
+  def apply(config: RabbitMqConfig): RabbitMqMessagePublisher = {
+    new RabbitMqMessagePublisher(new RabbitMqChannelFactory(config).channel)
+  }
+}
+
+
+
