@@ -1,25 +1,42 @@
 package tv.codely.scala_http_api.entry_point
 
+import scala.concurrent.ExecutionContext
+import scala.concurrent.Future
+
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import spray.json.DefaultJsonProtocol._
 import spray.json.JsValue
-
 import scala.concurrent.duration._
+import tv.codely.scala_http_api.module.System
+import tv.codely.scala_http_api.entry_point.controller.status.StatusGetController
+import tv.codely.scala_http_api.entry_point.controller.user.{UserGetController, UserPostController}
+import tv.codely.scala_http_api.entry_point.controller.video.{VideoGetController, VideoPostController}
 
-final class Routes(container: SystemController) {
+final class Routes(implicit 
+  system: System[Future],
+  executionContext: ExecutionContext
+){
+  val statusGetController = new StatusGetController
+
+  val userGetController  = new UserGetController(system.UsersSearcher)
+  val userPostController = new UserPostController(system.UserRegister)
+
+  val videoGetController  = new VideoGetController(system.VideosSearcher)
+  val videoPostController = new VideoPostController(system.VideoCreator)
+
   private val status = get {
-    path("status")(container.statusGetController.get())
+    path("status")(statusGetController.get())
   }
 
   private val user = get {
-    path("users")(container.userGetController.get())
+    path("users")(userGetController.get())
   } ~
     post {
       path("users") {
         jsonBody { body =>
-          container.userPostController.post(
+          userPostController.post(
             body("id").convertTo[String],
             body("name").convertTo[String]
           )
@@ -28,12 +45,12 @@ final class Routes(container: SystemController) {
     }
 
   private val video = get {
-    path("videos")(container.videoGetController.get())
+    path("videos")(videoGetController.get())
   } ~
     post {
       path("videos") {
         jsonBody { body =>
-          container.videoPostController.post(
+          videoPostController.post(
             body("id").convertTo[String],
             body("title").convertTo[String],
             body("duration_in_seconds").convertTo[Int].seconds,

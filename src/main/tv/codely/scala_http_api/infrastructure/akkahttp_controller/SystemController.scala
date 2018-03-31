@@ -1,29 +1,18 @@
 package tv.codely.scala_http_api.entry_point
 
-import tv.codely.scala_http_api.module.System
-import tv.codely.scala_http_api.entry_point.controller.status.StatusGetController
-import tv.codely.scala_http_api.entry_point.controller.user.{UserGetController, UserPostController}
-import tv.codely.scala_http_api.entry_point.controller.video.{VideoGetController, VideoPostController}
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.http.scaladsl.Http
 import scala.io.StdIn
+import tv.codely.scala_http_api.module.System
 
 final case class SystemController()(implicit 
   system: System[Future],
   executionContext: ExecutionContext
 ){
-  val statusGetController = new StatusGetController
-
-  val userGetController  = new UserGetController(system.UsersSearcher)
-  val userPostController = new UserPostController(system.UserRegister)
-
-  val videoGetController  = new VideoGetController(system.VideosSearcher)
-  val videoPostController = new VideoPostController(system.VideoCreator)
-
-  val routes = new Routes(this)
+  val routes = new Routes()
 
   def run(serverConfig: HttpServerConfig)(implicit actorSystem: ActorSystem): Unit = {
     implicit val materializer: ActorMaterializer = ActorMaterializer()
