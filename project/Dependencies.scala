@@ -20,7 +20,8 @@ object Dependencies {
     "ch.qos.logback"             % "logback-classic"          % "1.2.3", // Logging backend implementation
     "com.typesafe.scala-logging" %% "scala-logging"           % "3.7.2", // SLF4J Scala wrapper
     "net.logstash.logback"       % "logstash-logback-encoder" % "4.11", // Log JSON encoder
-    "org.typelevel"              %% "cats-core"               % "1.0.1"
+    "org.typelevel"              %% "cats-core"               % "1.0.1",
+    "org.typelevel"              %% "cats-effect"             % "0.10"
   )
 
   val test = Seq(

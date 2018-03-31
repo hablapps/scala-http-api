@@ -1,19 +1,20 @@
 package tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie
 
-import cats.effect.IO
 import doobie.Transactor
-import doobie.syntax.ConnectionIOOps
+import doobie.ConnectionIO
+import doobie.syntax.connectionio._
 import doobie.util.transactor.Transactor.Aux
+import cats.effect.Async
 
-import scala.concurrent.Future
-
-final class DoobieDbConnection(dbConfig: JdbcConfig) {
-  val transactor: Aux[IO, Unit] = Transactor.fromDriverManager[IO](
+final case class DoobieDbConnection[P[_]: Async](dbConfig: JdbcConfig) {
+  
+  val transactor: Aux[P, Unit] = Transactor.fromDriverManager[P](
     dbConfig.driver,
     dbConfig.url,
     dbConfig.user,
     dbConfig.password
   )
 
-  def read[T](query: ConnectionIOOps[T]): Future[T] = query.transact(transactor).unsafeToFuture()
+  def read[T](query: ConnectionIO[T]): P[T] = 
+    query.transact(transactor)
 }

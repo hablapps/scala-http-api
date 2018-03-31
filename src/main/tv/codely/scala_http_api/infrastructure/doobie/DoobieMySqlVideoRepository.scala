@@ -6,14 +6,16 @@ import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.
 import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.DoobieDbConnection
 
 import scala.concurrent.{ExecutionContext, Future}
+import cats.effect.IO
 
 final case class DoobieMySqlVideoRepository()(implicit
-  db: DoobieDbConnection,
+  db: DoobieDbConnection[IO],
   executionContext: ExecutionContext)
 extends VideoRepository[Future] {
 
   override def all(): Future[Seq[Video]] =
     db.read(sql"SELECT video_id, title, duration_in_seconds, category, creator_id FROM videos".query[Video].to[Seq])
+      .unsafeToFuture
 
   override def save(video: Video): Future[Unit] =
     sql"INSERT INTO videos(video_id, title, duration_in_seconds, category, creator_id) VALUES (${video.id}, ${video.title}, ${video.duration}, ${video.category}, ${video.creatorId})".update.run

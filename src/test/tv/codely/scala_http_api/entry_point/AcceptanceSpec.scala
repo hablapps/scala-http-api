@@ -37,7 +37,7 @@ protected[entry_point] abstract class AcceptanceSpec
   // Inject dependencies
 
   implicit val executionContext = system.dispatcher
-  implicit val doobieDbConnection = new DoobieDbConnection(dbConfig)
+  implicit val doobieDbConnection = new DoobieDbConnection[cats.effect.IO](dbConfig)
   implicit val doobieUserRepo = DoobieMySqlUserRepository.apply
   implicit val doobieVideoRepo = DoobieMySqlVideoRepository.apply
   implicit val rabbitMqPublisher = RabbitMqMessagePublisher(publisherConfig)

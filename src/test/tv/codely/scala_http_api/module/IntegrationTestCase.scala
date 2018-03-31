@@ -19,7 +19,7 @@ protected[scala_http_api] trait IntegrationTestCase extends UnitTestCase {
 
   protected implicit val actorSystem = ActorSystem(actorSystemName)
   protected implicit val executionContext = actorSystem.dispatcher
-  protected implicit val doobieDbConnection = new DoobieDbConnection(dbConfig)
+  protected implicit val doobieDbConnection = new DoobieDbConnection[cats.effect.IO](dbConfig)
   protected implicit val rabbitMqChannelFactory = new RabbitMqChannelFactory(publisherConfig)
   protected implicit val messagePublisher = new RabbitMqMessagePublisher(rabbitMqChannelFactory.channel)
   protected implicit val logger = new ScalaLoggingLogger
