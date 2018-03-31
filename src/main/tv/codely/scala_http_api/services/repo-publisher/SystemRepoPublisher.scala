@@ -15,8 +15,8 @@ final case class SystemRepoPublisher[P[_]]()(implicit
   publisher: MessagePublisher[P],
   Ap: Apply[P]) 
 extends System[P]{
-  val UserRegister = UserRegisterRepoPublisher.apply[P]
-  val UsersSearcher = UsersSearcherRepo.apply[P]
-  val VideoCreator = VideoCreatorRepoPublisher.apply[P]
-  val VideosSearcher = VideosSearcherRepo.apply[P]
+  val UserRegister = UserRegisterRepoPublisher[P]
+  val UsersSearcher = UsersSearcherRepo[P]
+  val VideoCreator = VideoCreatorRepoPublisher[P]
+  val VideosSearcher = VideosSearcherRepo[P]
 }

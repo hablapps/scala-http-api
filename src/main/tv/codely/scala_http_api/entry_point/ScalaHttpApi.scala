@@ -34,8 +34,8 @@ object ScalaHttpApi {
     implicit val doobieUserRepo = DoobieMySqlUserRepository[IO]
     implicit val doobieVideoRepo = DoobieMySqlVideoRepository[IO]
     implicit val rabbitMqPublisher = RabbitMqMessagePublisher(publisherConfig)
-    implicit val doobieRabbitMqSystem = module.SystemRepoPublisher.apply[Future]
-    val akkaHttpSystem = SystemController.apply
+    implicit val doobieRabbitMqSystem = module.SystemRepoPublisher[Future]
+    val akkaHttpSystem = SystemController()
 
     // Run system
 
