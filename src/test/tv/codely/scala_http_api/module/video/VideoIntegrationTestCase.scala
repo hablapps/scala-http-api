@@ -5,5 +5,5 @@ import tv.codely.scala_http_api.module.IntegrationTestCase
 import tv.codely.scala_http_api.module.video.infrastructure.repository.DoobieMySqlVideoRepository
 
 protected[video] trait VideoIntegrationTestCase extends IntegrationTestCase {
-  protected val repository = DoobieMySqlVideoRepository.apply
+  protected val repository = DoobieMySqlVideoRepository[cats.effect.IO]
 }

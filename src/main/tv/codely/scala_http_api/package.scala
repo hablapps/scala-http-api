@@ -2,11 +2,15 @@ package tv.codely
 
 package object scala_http_api{
 
-  import cats.{Id, ~>}
   import scala.concurrent.Future
 
+  import cats.{Id, ~>}
   implicit def fromIdToFuture: Id ~> Future =
     λ[Id ~> Future](Future.successful(_))
+
+  import cats.effect.IO
+  implicit def fromIOToFuture: IO ~> Future = 
+    λ[IO ~> Future](io => io.unsafeToFuture)
 }
 
 package scala_http_api{

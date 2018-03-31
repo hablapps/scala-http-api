@@ -38,7 +38,7 @@ final class VideoEntryPointShould extends AcceptanceSpec with BeforeAndAfterEach
   "return all the videos" in {
     val videos = VideoStub.randomSeq
 
-    videos.foreach(v => doobieVideoRepo.save(v).futureValue)
+    videos.foreach(v => doobieVideoRepo.save(v).unsafeToFuture.futureValue)
 
     getting("/videos") {
       status shouldBe StatusCodes.OK

@@ -8,14 +8,14 @@ object MessagePublisher{
 
   import cats.~>
 
-  implicit def toFuture[P[_], Q[_]](implicit 
+  implicit def toQ[P[_], Q[_]](implicit 
     P: MessagePublisher[P],
-    nat: P ~> Q): MessagePublisher[Q] = new MessagePublisher[Q]{
+    nat: P ~> Q) = new MessagePublisher[Q]{
       def publish(message: Message): Q[Unit] =
         nat(P.publish(message))
   }
 
-  implicit def toFutureView[P[_], Q[_]](P: MessagePublisher[P])(implicit 
-    nat: P ~> Q): MessagePublisher[Q] = toFuture(P, nat)
+  implicit def toQView[P[_], Q[_]](P: MessagePublisher[P])(implicit 
+    nat: P ~> Q): MessagePublisher[Q] = toQ(P, nat)
 
 }

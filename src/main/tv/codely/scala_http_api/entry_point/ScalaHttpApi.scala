@@ -4,6 +4,7 @@ package entry_point
 
 import scala.concurrent.Future
 import cats.instances.future._
+import cats.effect.IO
 
 import akka.actor.ActorSystem
 
@@ -29,9 +30,9 @@ object ScalaHttpApi {
 
     implicit val actorSystem = ActorSystem(actorSystemName)
     implicit val executionContext = actorSystem.dispatcher
-    implicit val doobieDbConnection = new DoobieDbConnection[cats.effect.IO](dbConfig)
-    implicit val doobieUserRepo = DoobieMySqlUserRepository.apply
-    implicit val doobieVideoRepo = DoobieMySqlVideoRepository.apply
+    implicit val doobieDbConnection = new DoobieDbConnection[IO](dbConfig)
+    implicit val doobieUserRepo = DoobieMySqlUserRepository[IO]
+    implicit val doobieVideoRepo = DoobieMySqlVideoRepository[IO]
     implicit val rabbitMqPublisher = RabbitMqMessagePublisher(publisherConfig)
     implicit val doobieRabbitMqSystem = module.SystemRepoPublisher.apply[Future]
     val akkaHttpSystem = SystemController.apply

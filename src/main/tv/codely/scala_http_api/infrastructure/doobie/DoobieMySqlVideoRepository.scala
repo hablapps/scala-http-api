@@ -5,21 +5,18 @@ import tv.codely.scala_http_api.module.video.domain.{Video, VideoRepository}
 import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.TypesConversions._
 import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.DoobieDbConnection
 
-import scala.concurrent.{ExecutionContext, Future}
-import cats.effect.IO
+import cats.Functor, cats.syntax.functor._
+import cats.effect.Async
 
-final case class DoobieMySqlVideoRepository()(implicit
-  db: DoobieDbConnection[IO],
-  executionContext: ExecutionContext)
-extends VideoRepository[Future] {
+final case class DoobieMySqlVideoRepository[P[_]: Async: Functor]()(implicit
+  db: DoobieDbConnection[P])
+extends VideoRepository[P] {
 
-  override def all(): Future[Seq[Video]] =
+  override def all(): P[Seq[Video]] =
     db.read(sql"SELECT video_id, title, duration_in_seconds, category, creator_id FROM videos".query[Video].to[Seq])
-      .unsafeToFuture
-
-  override def save(video: Video): Future[Unit] =
+  
+  override def save(video: Video): P[Unit] =
     sql"INSERT INTO videos(video_id, title, duration_in_seconds, category, creator_id) VALUES (${video.id}, ${video.title}, ${video.duration}, ${video.category}, ${video.creatorId})".update.run
       .transact(db.transactor)
-      .unsafeToFuture()
       .map(_ => ())
 }

@@ -19,14 +19,14 @@ final class DoobieMySqlUserRepositoryShould extends UserIntegrationTestCase with
   }
 
   "return an empty sequence if there're no users" in {
-    repository.all().futureValue shouldBe Seq.empty
+    repository.all().unsafeToFuture.futureValue shouldBe Seq.empty
   }
 
   "search all existing users" in {
     val users = UserStub.randomSeq
 
-    users.foreach(u => repository.save(u).futureValue)
+    users.foreach(u => repository.save(u).unsafeToFuture.futureValue)
 
-    repository.all().futureValue shouldBe users
+    repository.all().unsafeToFuture.futureValue shouldBe users
   }
 }

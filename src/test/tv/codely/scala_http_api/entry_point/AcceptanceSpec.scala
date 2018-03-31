@@ -3,6 +3,7 @@ package entry_point
 
 import scala.concurrent.Future
 
+import cats.effect.IO
 import cats.instances.future._
 
 import akka.util.ByteString
@@ -37,9 +38,9 @@ protected[entry_point] abstract class AcceptanceSpec
   // Inject dependencies
 
   implicit val executionContext = system.dispatcher
-  implicit val doobieDbConnection = new DoobieDbConnection[cats.effect.IO](dbConfig)
-  implicit val doobieUserRepo = DoobieMySqlUserRepository.apply
-  implicit val doobieVideoRepo = DoobieMySqlVideoRepository.apply
+  implicit val doobieDbConnection = new DoobieDbConnection[IO](dbConfig)
+  implicit val doobieUserRepo = DoobieMySqlUserRepository[IO]
+  implicit val doobieVideoRepo = DoobieMySqlVideoRepository[IO]
   implicit val rabbitMqPublisher = RabbitMqMessagePublisher(publisherConfig)
   implicit val doobieRabbitMqSystem = module.SystemRepoPublisher.apply[Future]
   val akkaHttpSystem = SystemController.apply

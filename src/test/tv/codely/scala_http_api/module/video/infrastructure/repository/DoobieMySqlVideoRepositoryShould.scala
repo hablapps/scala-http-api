@@ -19,14 +19,14 @@ final class DoobieMySqlVideoRepositoryShould extends VideoIntegrationTestCase wi
   }
 
   "return an empty sequence if there're no videos" in {
-    repository.all().futureValue shouldBe Seq.empty
+    repository.all().unsafeToFuture.futureValue shouldBe Seq.empty
   }
 
   "search all existing videos" in {
     val videos = VideoStub.randomSeq
 
-    videos.foreach(v => repository.save(v).futureValue)
+    videos.foreach(v => repository.save(v).unsafeToFuture.futureValue)
 
-    repository.all().futureValue shouldBe videos
+    repository.all().unsafeToFuture.futureValue shouldBe videos
   }
 }
