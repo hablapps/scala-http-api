@@ -10,10 +10,10 @@ import akka.actor.ActorSystem
 
 import com.typesafe.config.ConfigFactory
 
-import tv.codely.scala_http_api.module.shared.bus.infrastructure.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
-import tv.codely.scala_http_api.module.shared.persistence.infrastructure.doobie.{DoobieDbConnection, JdbcConfig}
-import tv.codely.scala_http_api.module.user.infrastructure.repository.DoobieMySqlUserRepository
-import tv.codely.scala_http_api.module.video.infrastructure.repository.DoobieMySqlVideoRepository
+import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
+import tv.codely.scala_http_api.effects.repositories.doobie.{DoobieDbConnection, JdbcConfig}
+import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlUserRepository
+import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlVideoRepository
 
 object ScalaHttpApi {
   def main(args: Array[String]): Unit = {

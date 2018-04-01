@@ -2,7 +2,7 @@ package tv.codely.scala_http_api.effects.repositories.doobie
 
 import org.scalamock.scalatest.MockFactory
 import tv.codely.scala_http_api.services.mock.UnitTestCase
-import tv.codely.scala_http_api.module.video.domain.{Video, VideoRepository}
+import tv.codely.scala_http_api.effects.repositories.api.{Video, VideoRepository}
 
 import scala.concurrent.Future
 

@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.module.video.domain
+package tv.codely.scala_http_api.effects.repositories.api
 
 import java.util.UUID
 

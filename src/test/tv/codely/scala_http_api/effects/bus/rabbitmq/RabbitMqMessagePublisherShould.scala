@@ -4,7 +4,7 @@ import org.scalatest.concurrent.Eventually
 import com.typesafe.config.ConfigFactory
 import tv.codely.scala_http_api.effects.bus.api._
 import tv.codely.scala_http_api.effects.bus.rabbit_mq._
-import tv.codely.scala_http_api.module.video.domain.VideoCreatedStub
+import tv.codely.scala_http_api.effects.repositories.api.VideoCreatedStub
 import tv.codely.scala_http_api.services.mock.UnitTestCase
 import scala.collection.mutable
 import scala.concurrent.duration._

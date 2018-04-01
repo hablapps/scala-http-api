@@ -3,7 +3,7 @@ package module.video.application.create
 
 import tv.codely.scala_http_api.services.mock.UnitTestCase
 import tv.codely.scala_http_api.module.shared.infrastructure.MessagePublisherMock
-import tv.codely.scala_http_api.module.video.domain.{VideoCreatedStub, VideoStub}
+import tv.codely.scala_http_api.effects.repositories.api.{VideoCreatedStub, VideoStub}
 import tv.codely.scala_http_api.effects.repositories.doobie.VideoRepositoryMock
 import scala.concurrent.{Future, ExecutionContext}, ExecutionContext.Implicits.global
 import cats.instances.future._

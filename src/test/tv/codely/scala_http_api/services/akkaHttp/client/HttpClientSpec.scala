@@ -1,5 +1,4 @@
-package tv.codely.scala_http_api
-package entry_point
+package tv.codely.scala_http_api.entry_point
 
 import akka.actor.ActorSystem
 import tv.codely.scala_http_api.module.SystemHttpClient
@@ -7,7 +6,7 @@ import org.scalatest.{Matchers, WordSpec}
 import org.scalatest.concurrent.ScalaFutures
 import scala.concurrent.duration._
 import tv.codely.scala_http_api.effects.repositories.api._
-import tv.codely.scala_http_api.module.video.domain._
+import tv.codely.scala_http_api.effects.repositories.api._
 
 class HttpClientSpec extends WordSpec with Matchers with ScalaFutures{
   

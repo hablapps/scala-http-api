@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.module.video.application.search
 
 import tv.codely.scala_http_api.services.mock.UnitTestCase
-import tv.codely.scala_http_api.module.video.domain.VideoStub
+import tv.codely.scala_http_api.effects.repositories.api.VideoStub
 import tv.codely.scala_http_api.effects.repositories.doobie.VideoRepositoryMock
 
 final class VideosSearcherRepoShould extends UnitTestCase with VideoRepositoryMock {

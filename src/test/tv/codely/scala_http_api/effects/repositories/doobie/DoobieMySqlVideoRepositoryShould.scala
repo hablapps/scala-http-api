@@ -1,6 +1,6 @@
 package tv.codely.scala_http_api.effects.repositories.doobie
 
-import tv.codely.scala_http_api.module.video.domain.VideoStub
+import tv.codely.scala_http_api.effects.repositories.api.VideoStub
 import doobie.implicits._
 import org.scalatest.BeforeAndAfterEach
 

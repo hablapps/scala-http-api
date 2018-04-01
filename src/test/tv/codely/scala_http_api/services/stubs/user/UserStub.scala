@@ -1,6 +1,6 @@
 package tv.codely.scala_http_api.effects.repositories.api
 
-import tv.codely.scala_http_api.module.video.domain.SeqStub
+import tv.codely.scala_http_api.effects.repositories.api.SeqStub
 
 object UserStub {
   def apply(
