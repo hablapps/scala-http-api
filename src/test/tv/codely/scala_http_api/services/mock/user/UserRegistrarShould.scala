@@ -1,6 +1,5 @@
 package tv.codely.scala_http_api
-package module
-package user.application.register
+package services.mock.user
 
 import tv.codely.scala_http_api.effects.bus.mock.MessagePublisherMock
 import tv.codely.scala_http_api.services.mock.UnitTestCase

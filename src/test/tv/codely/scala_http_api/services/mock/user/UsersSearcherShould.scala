@@ -1,4 +1,5 @@
-package tv.codely.scala_http_api.services.api.user
+package tv.codely.scala_http_api
+package services.mock.user
 
 import tv.codely.scala_http_api.services.mock.UnitTestCase
 import tv.codely.scala_http_api.effects.repositories.api.UserStub

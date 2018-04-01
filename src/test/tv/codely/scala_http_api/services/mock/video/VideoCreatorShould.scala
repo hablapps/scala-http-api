@@ -1,5 +1,5 @@
 package tv.codely.scala_http_api
-package services.api.video
+package services.mock.video
 
 import tv.codely.scala_http_api.effects.bus.mock.MessagePublisherMock
 import tv.codely.scala_http_api.services.mock.UnitTestCase
