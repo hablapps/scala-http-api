@@ -1,7 +1,7 @@
-package tv.codely.scala_http_api.entry_point
+package tv.codely.scala_http_api.services.akkaHttp
+package client
 
 import akka.actor.ActorSystem
-import tv.codely.scala_http_api.module.SystemHttpClient
 import org.scalatest.{Matchers, WordSpec}
 import org.scalatest.concurrent.ScalaFutures
 import scala.concurrent.duration._

@@ -21,6 +21,8 @@ import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqM
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{Matchers, WordSpec}
 
+import tv.codely.scala_http_api.services.akkaHttp.HttpServerConfig
+
 protected[entry_point] abstract class AcceptanceSpec
     extends WordSpec
     with Matchers

@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.module
+package tv.codely.scala_http_api.services.akkaHttp.client
 
 import tv.codely.scala_http_api.services.api._
 import tv.codely.scala_http_api.services.api.video._
@@ -11,7 +11,7 @@ import tv.codely.scala_http_api.effects.repositories.api._
 
 
 import tv.codely.scala_http_api.module.shared.user.domain.UserId
-import tv.codely.scala_http_api.entry_point.HttpServerConfig
+import tv.codely.scala_http_api.services.akkaHttp.HttpServerConfig
 import tv.codely.scala_http_api.module.user.infrastructure.marshaller.UserJsonFormatMarshaller._
 import tv.codely.scala_http_api.module.video.infrastructure.marshaller.VideoJsonFormatMarshaller._
 import scala.concurrent.Future

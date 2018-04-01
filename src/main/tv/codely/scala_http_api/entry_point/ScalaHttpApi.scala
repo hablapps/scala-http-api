@@ -14,6 +14,7 @@ import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqM
 import tv.codely.scala_http_api.effects.repositories.doobie.{DoobieDbConnection, JdbcConfig}
 import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlUserRepository
 import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlVideoRepository
+import tv.codely.scala_http_api.services.akkaHttp.HttpServerConfig
 
 object ScalaHttpApi {
   def main(args: Array[String]): Unit = {
