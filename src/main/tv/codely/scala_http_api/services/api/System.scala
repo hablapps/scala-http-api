@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.module
+package tv.codely.scala_http_api.services.api
 
 import tv.codely.scala_http_api.services.api.video.VideoCreator
 import tv.codely.scala_http_api.services.api.video.VideosSearcher

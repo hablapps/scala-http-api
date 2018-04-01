@@ -6,7 +6,7 @@ import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.http.scaladsl.Http
 import scala.io.StdIn
-import tv.codely.scala_http_api.module.System
+import tv.codely.scala_http_api.services.api.System
 
 final case class SystemController()(implicit 
   system: System[Future],

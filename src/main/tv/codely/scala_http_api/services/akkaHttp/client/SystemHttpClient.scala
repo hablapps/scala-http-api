@@ -1,6 +1,6 @@
 package tv.codely.scala_http_api.module
 
-import tv.codely.scala_http_api.services.api.video._
+import tv.codely.scala_http_api.services.api._
 import tv.codely.scala_http_api.services.api.video._
 import tv.codely.scala_http_api.services.api.user._
 import tv.codely.scala_http_api.services.api.user._
