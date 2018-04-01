@@ -1,5 +1,5 @@
 package tv.codely.scala_http_api
-package module.shared.infrastructure
+package effects.bus.state
 
 import tv.codely.scala_http_api.effects.bus.api._
 
