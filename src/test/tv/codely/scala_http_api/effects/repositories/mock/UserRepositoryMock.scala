@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.effects.repositories.doobie
+package tv.codely.scala_http_api.effects.repositories.mock
 
 import org.scalamock.scalatest.MockFactory
 import tv.codely.scala_http_api.services.mock.UnitTestCase

@@ -2,7 +2,7 @@ package tv.codely.scala_http_api.services.api.user
 
 import tv.codely.scala_http_api.services.mock.UnitTestCase
 import tv.codely.scala_http_api.effects.repositories.api.UserStub
-import tv.codely.scala_http_api.effects.repositories.doobie.UserRepositoryMock
+import tv.codely.scala_http_api.effects.repositories.mock.UserRepositoryMock
 import tv.codely.scala_http_api.services.repo_publisher.user.UsersSearcherRepo
 
 final class UsersSearcherRepoShould extends UnitTestCase with UserRepositoryMock {
