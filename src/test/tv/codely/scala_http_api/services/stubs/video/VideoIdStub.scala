@@ -2,7 +2,7 @@ package tv.codely.scala_http_api.effects.repositories.api
 
 import java.util.UUID
 
-import tv.codely.scala_http_api.module.shared.domain.UuidStub
+import tv.codely.scala_http_api.services.stubs.UuidStub
 import tv.codely.scala_http_api.services.api.video._
 
 object VideoIdStub {

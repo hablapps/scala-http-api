@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.services.api.user
+package tv.codely.scala_http_api.services.state.user
 
 import tv.codely.scala_http_api.State
 import tv.codely.scala_http_api.services.api.user.User
