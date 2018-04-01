@@ -2,7 +2,7 @@ package tv.codely.scala_http_api.services.akkaHttp.marshaller
 
 import spray.json.{DefaultJsonProtocol, DeserializationException, JsString, JsValue, RootJsonFormat, SerializationException, _}
 import tv.codely.scala_http_api.effects.bus.api.Message
-import tv.codely.scala_http_api.effects.repositories.api.UserRegistered
+import tv.codely.scala_http_api.services.api.user.UserRegistered
 import tv.codely.scala_http_api.module.user.infrastructure.marshaller.UserRegisteredJsonFormatMarshaller._
 import tv.codely.scala_http_api.effects.repositories.api.VideoCreated
 import tv.codely.scala_http_api.module.video.infrastructure.marshaller.VideoCreatedJsonFormatMarshaller._

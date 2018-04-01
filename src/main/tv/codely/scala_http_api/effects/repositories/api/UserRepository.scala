@@ -1,5 +1,7 @@
 package tv.codely.scala_http_api.effects.repositories.api
 
+import tv.codely.scala_http_api.services.api.user.User
+
 trait UserRepository[P[_]] {
   def all(): P[Seq[User]]
 

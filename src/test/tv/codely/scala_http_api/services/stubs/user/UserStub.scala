@@ -1,5 +1,6 @@
 package tv.codely.scala_http_api.effects.repositories.api
 
+import tv.codely.scala_http_api.services.api.user.User
 import tv.codely.scala_http_api.effects.repositories.api.SeqStub
 
 object UserStub {

@@ -1,6 +1,7 @@
 package tv.codely.scala_http_api.effects.repositories.doobie
 
 import tv.codely.scala_http_api.effects.repositories.api._
+import tv.codely.scala_http_api.services.api.user.User
 
 case class StateUserRepository(users: Seq[User])
 

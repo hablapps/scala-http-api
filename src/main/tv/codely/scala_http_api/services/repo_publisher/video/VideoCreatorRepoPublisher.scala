@@ -2,7 +2,7 @@ package tv.codely.scala_http_api.services.repo_publisher.video
 
 import tv.codely.scala_http_api.services.api.video._
 import tv.codely.scala_http_api.effects.bus.api.MessagePublisher
-import tv.codely.scala_http_api.module.shared.user.domain.UserId
+import tv.codely.scala_http_api.services.api.user.UserId
 import tv.codely.scala_http_api.effects.repositories.api._
 import cats.Apply, cats.syntax.apply._
 

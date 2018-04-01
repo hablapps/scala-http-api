@@ -4,7 +4,7 @@ import java.util.UUID
 
 import spray.json.{DefaultJsonProtocol, JsValue, JsonFormat, _}
 import tv.codely.scala_http_api.services.akkaHttp.marshaller.UuidJsonFormatMarshaller._
-import tv.codely.scala_http_api.module.shared.user.domain.UserId
+import tv.codely.scala_http_api.services.api.user.UserId
 
 object UserIdJsonFormatMarshaller extends DefaultJsonProtocol {
   implicit object UserIdMarshaller extends JsonFormat[UserId] {

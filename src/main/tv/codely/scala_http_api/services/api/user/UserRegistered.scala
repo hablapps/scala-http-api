@@ -1,7 +1,6 @@
-package tv.codely.scala_http_api.effects.repositories.api
+package tv.codely.scala_http_api.services.api.user
 
 import tv.codely.scala_http_api.effects.bus.api.Message
-import tv.codely.scala_http_api.module.shared.user.domain.UserId
 
 object UserRegistered {
   def apply(id: String, name: String): UserRegistered = apply(UserId(id), UserName(name))

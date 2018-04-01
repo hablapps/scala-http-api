@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.module.shared.user.domain
+package tv.codely.scala_http_api.services.api.user
 
 import java.util.UUID
 

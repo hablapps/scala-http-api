@@ -1,6 +1,9 @@
 package tv.codely.scala_http_api.effects.repositories.api
 
-import tv.codely.scala_http_api.module.shared.user.domain.UserId
+import tv.codely.scala_http_api.services.api.user.User
+import tv.codely.scala_http_api.services.api.user.UserId
+import tv.codely.scala_http_api.services.api.user.UserName
+import tv.codely.scala_http_api.services.api.user.UserRegistered
 
 object UserRegisteredStub {
   def apply(

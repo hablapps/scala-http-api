@@ -1,7 +1,8 @@
 package tv.codely.scala_http_api.effects.repositories.doobie
 
 import doobie.implicits._
-import tv.codely.scala_http_api.effects.repositories.api.{User, UserRepository}
+import tv.codely.scala_http_api.services.api.user.User
+import tv.codely.scala_http_api.effects.repositories.api.UserRepository
 import tv.codely.scala_http_api.effects.repositories.doobie.TypesConversions._
 
 import cats.Functor, cats.syntax.functor._

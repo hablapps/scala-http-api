@@ -1,6 +1,7 @@
 package tv.codely.scala_http_api.effects.repositories.api
 
 import tv.codely.scala_http_api.module.shared.domain.{IntStub, StringStub}
+import tv.codely.scala_http_api.services.api.user.UserName
 
 object UserNameStub {
   private val minimumChars = 1

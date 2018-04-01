@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.module.user.infrastructure.marshaller
 
 import spray.json.{DefaultJsonProtocol, DeserializationException, JsString, JsValue, JsonFormat}
-import tv.codely.scala_http_api.effects.repositories.api.UserName
+import tv.codely.scala_http_api.services.api.user.UserName
 
 object UserNameJsonFormatMarshaller extends DefaultJsonProtocol {
   implicit object UserNameMarshaller extends JsonFormat[UserName] {
