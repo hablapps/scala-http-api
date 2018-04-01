@@ -1,8 +1,8 @@
 package tv.codely.scala_http_api
-package module.video.application.create
+package services.api.video
 
+import tv.codely.scala_http_api.effects.bus.mock.MessagePublisherMock
 import tv.codely.scala_http_api.services.mock.UnitTestCase
-import tv.codely.scala_http_api.module.shared.infrastructure.MessagePublisherMock
 import tv.codely.scala_http_api.effects.repositories.api.{VideoCreatedStub, VideoStub}
 import tv.codely.scala_http_api.effects.repositories.doobie.VideoRepositoryMock
 import scala.concurrent.{Future, ExecutionContext}, ExecutionContext.Implicits.global

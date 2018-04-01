@@ -5,7 +5,7 @@ import akka.http.scaladsl.model.StatusCodes.NoContent
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
 import tv.codely.scala_http_api.module.shared.user.domain.UserId
-import tv.codely.scala_http_api.module.user.application.register.UserRegister
+import tv.codely.scala_http_api.services.api.user.UserRegister
 import tv.codely.scala_http_api.effects.repositories.api.UserName
 import scala.concurrent.{ExecutionContext, Future}
 

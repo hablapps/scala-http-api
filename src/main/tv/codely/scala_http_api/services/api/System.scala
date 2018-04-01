@@ -1,9 +1,9 @@
 package tv.codely.scala_http_api.module
 
-import tv.codely.scala_http_api.module.video.application.create.VideoCreator
+import tv.codely.scala_http_api.services.api.video.VideoCreator
 import tv.codely.scala_http_api.module.video.application.search.VideosSearcher
-import tv.codely.scala_http_api.module.user.application.register.UserRegister
-import tv.codely.scala_http_api.module.user.application.search.UsersSearcher
+import tv.codely.scala_http_api.services.api.user.UserRegister
+import tv.codely.scala_http_api.services.api.user.UsersSearcher
 
 trait System[P[_]]{
   val UserRegister: UserRegister[P]

@@ -1,9 +1,9 @@
 package tv.codely.scala_http_api.module
 
-import tv.codely.scala_http_api.module.video.application.create._
+import tv.codely.scala_http_api.services.api.video._
 import tv.codely.scala_http_api.module.video.application.search._
-import tv.codely.scala_http_api.module.user.application.register._
-import tv.codely.scala_http_api.module.user.application.search._
+import tv.codely.scala_http_api.services.api.user._
+import tv.codely.scala_http_api.services.api.user._
 import tv.codely.scala_http_api.effects.repositories.api._
 import tv.codely.scala_http_api.effects.repositories.api._
 import tv.codely.scala_http_api.effects.bus.api.MessagePublisher

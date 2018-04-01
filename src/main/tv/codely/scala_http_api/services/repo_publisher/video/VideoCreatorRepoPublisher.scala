@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.module.video.application.create
+package tv.codely.scala_http_api.services.api.video
 
 import tv.codely.scala_http_api.effects.bus.api.MessagePublisher
 import tv.codely.scala_http_api.module.shared.user.domain.UserId

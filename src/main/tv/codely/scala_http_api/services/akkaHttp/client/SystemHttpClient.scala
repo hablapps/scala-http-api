@@ -1,9 +1,9 @@
 package tv.codely.scala_http_api.module
 
-import video.application.create._
-import video.application.search._
-import user.application.register._
-import user.application.search._
+import tv.codely.scala_http_api.services.api.video._
+import tv.codely.scala_http_api.module.video.application.search._
+import tv.codely.scala_http_api.services.api.user._
+import tv.codely.scala_http_api.services.api.user._
 import tv.codely.scala_http_api.effects.repositories.api._
 
 import tv.codely.scala_http_api.module.shared.user.domain.UserId
