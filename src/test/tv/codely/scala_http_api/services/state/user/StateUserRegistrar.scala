@@ -1,6 +1,6 @@
 package tv.codely.scala_http_api.services.api.user
 
-import tv.codely.scala_http_api.effects.repositories.doobie.StateUserRepository
+import tv.codely.scala_http_api.effects.repositories.state.StateUserRepository
 import tv.codely.scala_http_api.effects.bus.state.StateMessagePublisher
 
 case class StateUserRegister(

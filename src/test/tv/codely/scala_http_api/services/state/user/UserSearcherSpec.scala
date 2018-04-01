@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.services.api.user
 
 import tv.codely.scala_http_api.State
-import tv.codely.scala_http_api.effects.repositories.doobie.StateUserRepository
+import tv.codely.scala_http_api.effects.repositories.state.StateUserRepository
 import tv.codely.scala_http_api.effects.repositories.api.UserStub
 import tv.codely.scala_http_api.services.repo_publisher.user.UsersSearcherRepo
 

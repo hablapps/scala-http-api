@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.effects.repositories.doobie
+package tv.codely.scala_http_api.effects.repositories.state
 
 import tv.codely.scala_http_api.effects.repositories.api._
 import tv.codely.scala_http_api.services.api.user.User
