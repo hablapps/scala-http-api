@@ -1,6 +1,6 @@
 package tv.codely.scala_http_api.module.shared.infrastructure.message_broker.rabbitmq
 import com.newmotion.akka.rabbitmq.{BasicProperties, DefaultConsumer, Envelope}
-import tv.codely.scala_http_api.module.shared.marshaller.infrastructure.MessageJsonFormatMarshaller._
+import tv.codely.scala_http_api.services.akkaHttp.marshaller.MessageJsonFormatMarshaller._
 import spray.json._
 import tv.codely.scala_http_api.effects.bus.api.Message
 import tv.codely.scala_http_api.effects.bus.rabbit_mq.RabbitMqChannelFactory
