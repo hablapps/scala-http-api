@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.entry_point
+package tv.codely.scala_http_api.services.akkaHttp.controller
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
@@ -10,9 +10,9 @@ import spray.json.DefaultJsonProtocol._
 import spray.json.JsValue
 import scala.concurrent.duration._
 import tv.codely.scala_http_api.services.api.System
-import tv.codely.scala_http_api.entry_point.controller.status.StatusGetController
-import tv.codely.scala_http_api.entry_point.controller.user.{UserGetController, UserPostController}
-import tv.codely.scala_http_api.entry_point.controller.video.{VideoGetController, VideoPostController}
+import tv.codely.scala_http_api.services.akkaHttp.controller.status.StatusGetController
+import tv.codely.scala_http_api.services.akkaHttp.controller.user.{UserGetController, UserPostController}
+import tv.codely.scala_http_api.services.akkaHttp.controller.video.{VideoGetController, VideoPostController}
 
 final class Routes(implicit 
   system: System[Future],

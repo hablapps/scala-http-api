@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.entry_point.controller.user
+package tv.codely.scala_http_api.services.akkaHttp.controller.user
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import akka.http.scaladsl.server.StandardRoute

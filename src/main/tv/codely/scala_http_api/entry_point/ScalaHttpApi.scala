@@ -15,6 +15,7 @@ import tv.codely.scala_http_api.effects.repositories.doobie.{DoobieDbConnection,
 import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlUserRepository
 import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlVideoRepository
 import tv.codely.scala_http_api.services.akkaHttp.HttpServerConfig
+import tv.codely.scala_http_api.services.akkaHttp.controller.SystemController
 
 object ScalaHttpApi {
   def main(args: Array[String]): Unit = {

@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.entry_point.controller.status
+package tv.codely.scala_http_api.services.akkaHttp.controller.status
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.StandardRoute

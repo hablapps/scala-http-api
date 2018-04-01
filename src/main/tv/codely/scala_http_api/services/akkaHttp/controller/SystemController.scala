@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.entry_point
+package tv.codely.scala_http_api.services.akkaHttp.controller
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
