@@ -5,6 +5,7 @@ import tv.codely.scala_http_api.effects.bus.mock.MessagePublisherMock
 import tv.codely.scala_http_api.services.mock.UnitTestCase
 import tv.codely.scala_http_api.effects.repositories.api.{VideoCreatedStub, VideoStub}
 import tv.codely.scala_http_api.effects.repositories.doobie.VideoRepositoryMock
+import tv.codely.scala_http_api.services.repo_publisher.video.VideoCreatorRepoPublisher
 import scala.concurrent.{Future, ExecutionContext}, ExecutionContext.Implicits.global
 import cats.instances.future._
 

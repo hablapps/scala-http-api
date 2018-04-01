@@ -1,5 +1,6 @@
-package tv.codely.scala_http_api.services.api.user
+package tv.codely.scala_http_api.services.repo_publisher.user
 
+import tv.codely.scala_http_api.services.api.user._
 import tv.codely.scala_http_api.effects.bus.api.MessagePublisher
 import tv.codely.scala_http_api.module.shared.user.domain.UserId
 import tv.codely.scala_http_api.effects.repositories.api._

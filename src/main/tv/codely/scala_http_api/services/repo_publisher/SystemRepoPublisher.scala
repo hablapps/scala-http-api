@@ -1,11 +1,8 @@
-package tv.codely.scala_http_api.module
+package tv.codely.scala_http_api.services.repo_publisher
 
 import tv.codely.scala_http_api.services.api._
-import tv.codely.scala_http_api.services.api.video._
-import tv.codely.scala_http_api.services.api.video._
-import tv.codely.scala_http_api.services.api.user._
-import tv.codely.scala_http_api.services.api.user._
-import tv.codely.scala_http_api.effects.repositories.api._
+import tv.codely.scala_http_api.services.repo_publisher.video._
+import tv.codely.scala_http_api.services.repo_publisher.user._
 import tv.codely.scala_http_api.effects.repositories.api._
 import tv.codely.scala_http_api.effects.bus.api.MessagePublisher
 import cats.Apply

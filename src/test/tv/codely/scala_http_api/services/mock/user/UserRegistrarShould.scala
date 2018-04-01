@@ -3,10 +3,10 @@ package module
 package user.application.register
 
 import tv.codely.scala_http_api.effects.bus.mock.MessagePublisherMock
-import tv.codely.scala_http_api.services.api.user._
 import tv.codely.scala_http_api.services.mock.UnitTestCase
 import tv.codely.scala_http_api.effects.repositories.api.{UserRegisteredStub, UserStub}
 import tv.codely.scala_http_api.effects.repositories.doobie.UserRepositoryMock
+import tv.codely.scala_http_api.services.repo_publisher.user.UserRegisterRepoPublisher
 import scala.concurrent.{Future, ExecutionContext}, ExecutionContext.Implicits.global
 import cats.instances.future._
 

@@ -14,6 +14,7 @@ import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqM
 import tv.codely.scala_http_api.effects.repositories.doobie.{DoobieDbConnection, JdbcConfig}
 import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlUserRepository
 import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlVideoRepository
+import tv.codely.scala_http_api.services.repo_publisher.SystemRepoPublisher
 import tv.codely.scala_http_api.services.akkaHttp.HttpServerConfig
 import tv.codely.scala_http_api.services.akkaHttp.controller.SystemController
 
@@ -36,7 +37,7 @@ object ScalaHttpApi {
     implicit val doobieUserRepo = DoobieMySqlUserRepository[IO]
     implicit val doobieVideoRepo = DoobieMySqlVideoRepository[IO]
     implicit val rabbitMqPublisher = RabbitMqMessagePublisher(publisherConfig)
-    implicit val doobieRabbitMqSystem = module.SystemRepoPublisher[Future]
+    implicit val doobieRabbitMqSystem = SystemRepoPublisher[Future]
     val akkaHttpSystem = SystemController()
 
     // Run system

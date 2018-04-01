@@ -3,6 +3,7 @@ package tv.codely.scala_http_api.services.api.video
 import tv.codely.scala_http_api.services.mock.UnitTestCase
 import tv.codely.scala_http_api.effects.repositories.api.VideoStub
 import tv.codely.scala_http_api.effects.repositories.doobie.VideoRepositoryMock
+import tv.codely.scala_http_api.services.repo_publisher.video.VideosSearcherRepo
 
 final class VideosSearcherRepoShould extends UnitTestCase with VideoRepositoryMock {
   private val searcher = new VideosSearcherRepo()(repository)
