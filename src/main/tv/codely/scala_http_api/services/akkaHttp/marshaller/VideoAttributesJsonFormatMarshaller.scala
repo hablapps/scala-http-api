@@ -4,7 +4,7 @@ import java.util.UUID
 
 import spray.json.{DeserializationException, JsNumber, JsString, JsValue, JsonFormat, _}
 import tv.codely.scala_http_api.services.akkaHttp.marshaller.UuidJsonFormatMarshaller._
-import tv.codely.scala_http_api.effects.repositories.api._
+import tv.codely.scala_http_api.services.api.video._
 
 object VideoAttributesJsonFormatMarshaller {
   implicit object VideoIdMarshaller extends JsonFormat[VideoId] {

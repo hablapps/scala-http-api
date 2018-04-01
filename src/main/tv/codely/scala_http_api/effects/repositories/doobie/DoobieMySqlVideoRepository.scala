@@ -1,7 +1,8 @@
 package tv.codely.scala_http_api.effects.repositories.doobie
 
 import doobie.implicits._
-import tv.codely.scala_http_api.effects.repositories.api.{Video, VideoRepository}
+import tv.codely.scala_http_api.effects.repositories.api.VideoRepository
+import tv.codely.scala_http_api.services.api.video._
 import tv.codely.scala_http_api.effects.repositories.doobie.TypesConversions._
 
 import cats.Functor, cats.syntax.functor._

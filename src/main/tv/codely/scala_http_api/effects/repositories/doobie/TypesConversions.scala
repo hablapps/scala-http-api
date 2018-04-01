@@ -3,7 +3,7 @@ package tv.codely.scala_http_api.effects.repositories.doobie
 import java.util.UUID
 
 import doobie.Meta
-import tv.codely.scala_http_api.effects.repositories.api.VideoCategory
+import tv.codely.scala_http_api.services.api.video.VideoCategory
 
 import scala.concurrent.duration._
 

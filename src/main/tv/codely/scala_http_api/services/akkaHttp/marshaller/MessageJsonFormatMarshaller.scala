@@ -4,7 +4,7 @@ import spray.json.{DefaultJsonProtocol, DeserializationException, JsString, JsVa
 import tv.codely.scala_http_api.effects.bus.api.Message
 import tv.codely.scala_http_api.services.api.user.UserRegistered
 import tv.codely.scala_http_api.module.user.infrastructure.marshaller.UserRegisteredJsonFormatMarshaller._
-import tv.codely.scala_http_api.effects.repositories.api.VideoCreated
+import tv.codely.scala_http_api.services.api.video.VideoCreated
 import tv.codely.scala_http_api.module.video.infrastructure.marshaller.VideoCreatedJsonFormatMarshaller._
 
 object MessageJsonFormatMarshaller extends DefaultJsonProtocol {

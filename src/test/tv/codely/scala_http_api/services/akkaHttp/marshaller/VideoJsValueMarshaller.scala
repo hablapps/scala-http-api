@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.module.video.infrastructure.marshaller
 
 import spray.json.{JsArray, JsNumber, JsObject, JsString}
-import tv.codely.scala_http_api.effects.repositories.api.Video
+import tv.codely.scala_http_api.services.api.video.Video
 
 object VideoJsValueMarshaller {
   def marshall(videos: Seq[Video]): JsArray = JsArray(

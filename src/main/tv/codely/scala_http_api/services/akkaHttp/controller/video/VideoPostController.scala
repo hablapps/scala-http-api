@@ -7,7 +7,7 @@ import akka.http.scaladsl.server.Route
 import tv.codely.scala_http_api.services.api.video.VideoCreator
 import akka.http.scaladsl.server.Directives.complete
 import tv.codely.scala_http_api.services.api.user.UserId
-import tv.codely.scala_http_api.effects.repositories.api.{VideoCategory, VideoDuration, VideoId, VideoTitle}
+import tv.codely.scala_http_api.services.api.video._
 import scala.concurrent.{ExecutionContext, Future}
 
 final class VideoPostController(creator: VideoCreator[Future])(implicit executionContext: ExecutionContext) {
