@@ -4,7 +4,7 @@ import akka.http.scaladsl.model._
 import doobie.implicits._
 import org.scalatest.BeforeAndAfterEach
 import spray.json._
-import tv.codely.scala_http_api.effects.repositories.api.UserStub
+import tv.codely.scala_http_api.services.stubs.user.UserStub
 import tv.codely.scala_http_api.services.akkaHttp.marshaller.UserJsValueMarshaller
 
 final class UserEntryPointShould extends AcceptanceSpec with BeforeAndAfterEach {

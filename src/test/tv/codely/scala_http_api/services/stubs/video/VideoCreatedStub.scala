@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.effects.repositories.api
 
 import tv.codely.scala_http_api.services.api.user.UserId
-import tv.codely.scala_http_api.effects.repositories.api.UserIdStub
+import tv.codely.scala_http_api.services.stubs.user.UserIdStub
 import tv.codely.scala_http_api.services.api.video._
 
 object VideoCreatedStub {
