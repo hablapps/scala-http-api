@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.module.shared.infrastructure.logger.scala_logging
+package tv.codely.scala_http_api.effects.loggier.scala_logging
 
 import java.io.{File, PrintWriter, StringWriter}
 
