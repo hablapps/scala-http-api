@@ -10,8 +10,8 @@ import tv.codely.scala_http_api.module.System
 
 final case class SystemController()(implicit 
   system: System[Future],
-  executionContext: ExecutionContext
-){
+  ec: ExecutionContext){
+  
   val routes = new Routes()
 
   def run(serverConfig: HttpServerConfig)(implicit actorSystem: ActorSystem): Unit = {

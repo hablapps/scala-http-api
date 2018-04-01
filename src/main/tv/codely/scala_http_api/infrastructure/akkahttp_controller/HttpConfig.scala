@@ -2,7 +2,10 @@ package tv.codely.scala_http_api.entry_point
 
 import com.typesafe.config.Config
 
-final case class HttpServerConfig(host: String, port: Int)
+final case class HttpServerConfig(host: String, port: Int){
+  def addPath(path: String): String = 
+    s"$host:$port/$path"
+}
 
 object HttpServerConfig {
   def apply(serverConfig: Config): HttpServerConfig = HttpServerConfig(
