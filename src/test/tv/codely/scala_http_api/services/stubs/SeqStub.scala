@@ -1,6 +1,4 @@
-package tv.codely.scala_http_api.effects.repositories.api
-
-import tv.codely.scala_http_api.services.stubs.IntStub
+package tv.codely.scala_http_api.services.stubs
 
 object SeqStub {
   val maximumElements = 10

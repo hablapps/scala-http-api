@@ -1,6 +1,7 @@
-package tv.codely.scala_http_api.effects.repositories.api
+package tv.codely.scala_http_api.services.stubs.video
 
 import tv.codely.scala_http_api.services.stubs.user.UserIdStub
+import tv.codely.scala_http_api.services.stubs.SeqStub
 import tv.codely.scala_http_api.services.api.video._
 
 import scala.concurrent.duration.Duration

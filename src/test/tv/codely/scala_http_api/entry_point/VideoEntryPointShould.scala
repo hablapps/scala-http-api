@@ -4,7 +4,7 @@ import doobie.implicits._
 import akka.http.scaladsl.model.{ContentTypes, StatusCodes}
 import org.scalatest.BeforeAndAfterEach
 import spray.json._
-import tv.codely.scala_http_api.effects.repositories.api.VideoStub
+import tv.codely.scala_http_api.services.stubs.video.VideoStub
 import tv.codely.scala_http_api.services.akkaHttp.marshaller.VideoJsValueMarshaller
 
 final class VideoEntryPointShould extends AcceptanceSpec with BeforeAndAfterEach {

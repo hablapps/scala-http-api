@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.effects.repositories.api
+package tv.codely.scala_http_api.services.stubs.video
 
 import tv.codely.scala_http_api.services.api.user.UserId
 import tv.codely.scala_http_api.services.stubs.user.UserIdStub
