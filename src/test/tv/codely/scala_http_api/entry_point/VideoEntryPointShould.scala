@@ -5,7 +5,7 @@ import akka.http.scaladsl.model.{ContentTypes, StatusCodes}
 import org.scalatest.BeforeAndAfterEach
 import spray.json._
 import tv.codely.scala_http_api.effects.repositories.api.VideoStub
-import tv.codely.scala_http_api.module.video.infrastructure.marshaller.VideoJsValueMarshaller
+import tv.codely.scala_http_api.services.akkaHttp.marshaller.VideoJsValueMarshaller
 
 final class VideoEntryPointShould extends AcceptanceSpec with BeforeAndAfterEach {
   private def cleanVideosTable(): Unit =

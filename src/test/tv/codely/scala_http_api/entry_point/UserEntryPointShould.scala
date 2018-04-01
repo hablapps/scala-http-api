@@ -5,7 +5,7 @@ import doobie.implicits._
 import org.scalatest.BeforeAndAfterEach
 import spray.json._
 import tv.codely.scala_http_api.effects.repositories.api.UserStub
-import tv.codely.scala_http_api.module.user.infrastructure.marshaller.UserJsValueMarshaller
+import tv.codely.scala_http_api.services.akkaHttp.marshaller.UserJsValueMarshaller
 
 final class UserEntryPointShould extends AcceptanceSpec with BeforeAndAfterEach {
   private def cleanUsersTable(): Unit =
