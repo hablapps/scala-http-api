@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.effects.repositories.state
 
-import tv.codely.scala_http_api.services.api.user.User
-import tv.codely.scala_http_api.services.stubs.user.UserStub
+import tv.codely.scala_http_api.application.api.user.User
+import tv.codely.scala_http_api.application.stubs.user.UserStub
 
 final class StateUserRepositoryShould extends org.scalatest.WordSpec with org.scalatest.Matchers {
 

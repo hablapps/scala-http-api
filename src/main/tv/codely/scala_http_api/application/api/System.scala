@@ -1,0 +1,13 @@
+package tv.codely.scala_http_api.application.api
+
+import tv.codely.scala_http_api.application.api.video.VideoCreator
+import tv.codely.scala_http_api.application.api.video.VideosSearcher
+import tv.codely.scala_http_api.application.api.user.UserRegister
+import tv.codely.scala_http_api.application.api.user.UsersSearcher
+
+trait System[P[_]]{
+  val UserRegister: UserRegister[P]
+  val UsersSearcher: UsersSearcher[P]
+  val VideoCreator: VideoCreator[P]
+  val VideosSearcher: VideosSearcher[P]
+}

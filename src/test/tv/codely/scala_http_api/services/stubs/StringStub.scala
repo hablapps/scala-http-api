@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.services.stubs
+package tv.codely.scala_http_api.application.stubs
 
 import scala.util.Random
 

@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.services.state.user
+package tv.codely.scala_http_api.application.state.user
 
 import tv.codely.scala_http_api.effects.repositories.state.StateUserRepository
 import tv.codely.scala_http_api.effects.bus.state.StateMessagePublisher

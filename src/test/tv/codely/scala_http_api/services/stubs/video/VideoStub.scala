@@ -1,8 +1,8 @@
-package tv.codely.scala_http_api.services.stubs.video
+package tv.codely.scala_http_api.application.stubs.video
 
-import tv.codely.scala_http_api.services.stubs.user.UserIdStub
-import tv.codely.scala_http_api.services.stubs.SeqStub
-import tv.codely.scala_http_api.services.api.video._
+import tv.codely.scala_http_api.application.stubs.user.UserIdStub
+import tv.codely.scala_http_api.application.stubs.SeqStub
+import tv.codely.scala_http_api.application.api.video._
 
 import scala.concurrent.duration.Duration
 

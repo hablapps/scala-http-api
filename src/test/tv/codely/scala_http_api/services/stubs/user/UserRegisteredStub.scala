@@ -1,9 +1,9 @@
-package tv.codely.scala_http_api.services.stubs.user
+package tv.codely.scala_http_api.application.stubs.user
 
-import tv.codely.scala_http_api.services.api.user.User
-import tv.codely.scala_http_api.services.api.user.UserId
-import tv.codely.scala_http_api.services.api.user.UserName
-import tv.codely.scala_http_api.services.api.user.UserRegistered
+import tv.codely.scala_http_api.application.api.user.User
+import tv.codely.scala_http_api.application.api.user.UserId
+import tv.codely.scala_http_api.application.api.user.UserName
+import tv.codely.scala_http_api.application.api.user.UserRegistered
 
 object UserRegisteredStub {
   def apply(

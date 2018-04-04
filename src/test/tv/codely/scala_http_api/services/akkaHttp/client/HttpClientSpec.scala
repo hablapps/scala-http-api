@@ -1,12 +1,12 @@
-package tv.codely.scala_http_api.services.akkaHttp
+package tv.codely.scala_http_api.application.akkaHttp
 package client
 
 import akka.actor.ActorSystem
 import org.scalatest.{Matchers, WordSpec}
 import org.scalatest.concurrent.ScalaFutures
 import scala.concurrent.duration._
-import tv.codely.scala_http_api.services.stubs.user.UserStub
-import tv.codely.scala_http_api.services.stubs.video.VideoStub
+import tv.codely.scala_http_api.application.stubs.user.UserStub
+import tv.codely.scala_http_api.application.stubs.video.VideoStub
 
 class HttpClientSpec extends WordSpec with Matchers with ScalaFutures{
   

@@ -1,9 +1,9 @@
-package tv.codely.scala_http_api.services.stubs.video
+package tv.codely.scala_http_api.application.stubs.video
 
 import java.util.UUID
 
-import tv.codely.scala_http_api.services.stubs.UuidStub
-import tv.codely.scala_http_api.services.api.video._
+import tv.codely.scala_http_api.application.stubs.UuidStub
+import tv.codely.scala_http_api.application.api.video._
 
 object VideoIdStub {
   def apply(value: String): VideoId = VideoIdStub(UuidStub(value))

@@ -3,7 +3,7 @@ package tv.codely.scala_http_api.effects.loggier.scala_logging
 import java.io.{File, PrintWriter, StringWriter}
 
 import spray.json._
-import tv.codely.scala_http_api.services.mock.UnitTestCase
+import tv.codely.scala_http_api.application.mock.UnitTestCase
 import tv.codely.scala_http_api.effects.logger.scala_logging.ScalaLoggingLogger
 
 import scala.io.Source

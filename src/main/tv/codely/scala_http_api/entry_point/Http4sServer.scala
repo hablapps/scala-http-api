@@ -9,9 +9,9 @@ import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqM
 import tv.codely.scala_http_api.effects.repositories.doobie.{DoobieDbConnection, JdbcConfig}
 import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlUserRepository
 import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlVideoRepository
-import tv.codely.scala_http_api.services.repo_publisher.SystemRepoPublisher
-import tv.codely.scala_http_api.services.api.System
-import tv.codely.scala_http_api.services.http4s.controller.Http4sSystemService
+import tv.codely.scala_http_api.application.repo_publisher.SystemRepoPublisher
+import tv.codely.scala_http_api.application.api.System
+import tv.codely.scala_http_api.application.http4s.controller.Http4sSystemService
 
 object Http4sEntryPoint extends Http4sSystemService.App[IO](DoobieRabbitSystem.system)
 
