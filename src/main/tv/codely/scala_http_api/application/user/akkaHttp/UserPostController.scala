@@ -4,9 +4,9 @@ import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.model.StatusCodes.NoContent
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
-import tv.codely.scala_http_api.application.api.user.UserId
-import tv.codely.scala_http_api.application.api.user.UserName
-import tv.codely.scala_http_api.application.api.user.UserRegister
+import tv.codely.scala_http_api.application.user.api.UserId
+import tv.codely.scala_http_api.application.user.api.UserName
+import tv.codely.scala_http_api.application.user.api.UserRegister
 import scala.concurrent.{ExecutionContext, Future}
 
 final class UserPostController(registrar: UserRegister[Future])(implicit executionContext: ExecutionContext) {

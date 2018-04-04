@@ -10,7 +10,7 @@ import org.http4s.circe._
 import io.circe.generic.auto._
 import io.circe.syntax._
 
-import tv.codely.scala_http_api.application.api.user._
+import tv.codely.scala_http_api.application.user.api._
 import Decoders._
 
 case class UserService[P[_]: Effect: FlatMap](

@@ -3,7 +3,7 @@ package tv.codely.scala_http_api.application.stubs.user
 import java.util.UUID
 
 import tv.codely.scala_http_api.application.stubs.UuidStub
-import tv.codely.scala_http_api.application.api.user.UserId
+import tv.codely.scala_http_api.application.user.api.UserId
 
 object UserIdStub {
   def apply(value: String): UserId = UserIdStub(UuidStub(value))

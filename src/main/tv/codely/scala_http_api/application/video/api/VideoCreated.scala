@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.application.api.video
 
 import tv.codely.scala_http_api.effects.bus.api.Message
-import tv.codely.scala_http_api.application.api.user.UserId
+import tv.codely.scala_http_api.application.user.api.UserId
 
 object VideoCreated {
   def apply(id: String, title: String, duration: BigDecimal, category: String, creatorId: String): VideoCreated = apply(

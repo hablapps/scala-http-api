@@ -6,7 +6,7 @@ import akka.http.scaladsl.model.StatusCodes.NoContent
 import akka.http.scaladsl.server.Route
 import tv.codely.scala_http_api.application.api.video.VideoCreator
 import akka.http.scaladsl.server.Directives.complete
-import tv.codely.scala_http_api.application.api.user.UserId
+import tv.codely.scala_http_api.application.user.api.UserId
 import tv.codely.scala_http_api.application.api.video._
 import scala.concurrent.{ExecutionContext, Future}
 

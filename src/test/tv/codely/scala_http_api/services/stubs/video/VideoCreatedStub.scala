@@ -1,6 +1,6 @@
 package tv.codely.scala_http_api.application.stubs.video
 
-import tv.codely.scala_http_api.application.api.user.UserId
+import tv.codely.scala_http_api.application.user.api.UserId
 import tv.codely.scala_http_api.application.stubs.user.UserIdStub
 import tv.codely.scala_http_api.application.api.video._
 

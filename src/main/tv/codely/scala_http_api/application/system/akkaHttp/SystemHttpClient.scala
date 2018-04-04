@@ -2,13 +2,13 @@ package tv.codely.scala_http_api.application.akkaHttp.client
 
 import tv.codely.scala_http_api.application.api._
 import tv.codely.scala_http_api.application.api.video._
-import tv.codely.scala_http_api.application.api.user._
-import tv.codely.scala_http_api.application.api.user._
+import tv.codely.scala_http_api.application.user.api._
+import tv.codely.scala_http_api.application.user.api._
 
-import tv.codely.scala_http_api.application.api.user.UserId
+import tv.codely.scala_http_api.application.user.api.UserId
 
 
-import tv.codely.scala_http_api.application.api.user.UserId
+import tv.codely.scala_http_api.application.user.api.UserId
 import tv.codely.scala_http_api.application.akkaHttp.HttpServerConfig
 import tv.codely.scala_http_api.module.user.infrastructure.marshaller.UserJsonFormatMarshaller._
 import tv.codely.scala_http_api.module.video.infrastructure.marshaller.VideoJsonFormatMarshaller._
