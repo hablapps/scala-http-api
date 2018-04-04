@@ -11,7 +11,7 @@ import io.circe.generic.auto._
 import io.circe.syntax._
 
 import scala.concurrent.duration._
-import tv.codely.scala_http_api.application.api.video._
+import tv.codely.scala_http_api.application.video.api._
 import tv.codely.scala_http_api.application.user.api._
 import Decoders._
 

@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.application.akkaHttp.client
 
 import tv.codely.scala_http_api.application.api._
-import tv.codely.scala_http_api.application.api.video._
+import tv.codely.scala_http_api.application.video.api._
 import tv.codely.scala_http_api.application.user.api._
 import tv.codely.scala_http_api.application.user.api._
 

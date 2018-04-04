@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.application.stubs.video
 
 import tv.codely.scala_http_api.application.stubs.{IntStub, StringStub}
-import tv.codely.scala_http_api.application.api.video._
+import tv.codely.scala_http_api.application.video.api._
 
 object VideoTitleStub {
   private val minimumChars = 1

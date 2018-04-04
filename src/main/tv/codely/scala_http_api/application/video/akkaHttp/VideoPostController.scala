@@ -4,10 +4,10 @@ import scala.concurrent.duration.Duration
 import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.model.StatusCodes.NoContent
 import akka.http.scaladsl.server.Route
-import tv.codely.scala_http_api.application.api.video.VideoCreator
+import tv.codely.scala_http_api.application.video.api.VideoCreator
 import akka.http.scaladsl.server.Directives.complete
 import tv.codely.scala_http_api.application.user.api.UserId
-import tv.codely.scala_http_api.application.api.video._
+import tv.codely.scala_http_api.application.video.api._
 import scala.concurrent.{ExecutionContext, Future}
 
 final class VideoPostController(creator: VideoCreator[Future])(implicit executionContext: ExecutionContext) {

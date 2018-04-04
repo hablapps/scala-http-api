@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api.application.api
 
-import tv.codely.scala_http_api.application.api.video.VideoCreator
-import tv.codely.scala_http_api.application.api.video.VideosSearcher
+import tv.codely.scala_http_api.application.video.api.VideoCreator
+import tv.codely.scala_http_api.application.video.api.VideosSearcher
 import tv.codely.scala_http_api.application.user.api.UserRegister
 import tv.codely.scala_http_api.application.user.api.UsersSearcher
 
