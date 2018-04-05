@@ -1,6 +1,6 @@
 package tv.codely.scala_http_api.application.http4s.controller
 
-import cats.FlatMap, cats.syntax.apply._, cats.syntax.flatMap._
+import cats.syntax.apply._, cats.syntax.flatMap._
 import cats.effect._
 
 import org.http4s._
@@ -13,7 +13,7 @@ import io.circe.syntax._
 import tv.codely.scala_http_api.application.user.api._
 import Decoders._
 
-case class UserService[P[_]: Effect: FlatMap](
+case class UserService[P[_]: Effect](
   usersSearcher: UsersSearcher[P],
   userRegister: UserRegister[P]
 ) extends Http4sDsl[P]{

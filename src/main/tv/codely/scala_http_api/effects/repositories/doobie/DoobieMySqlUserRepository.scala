@@ -5,10 +5,10 @@ import tv.codely.scala_http_api.application.user.api.User
 import tv.codely.scala_http_api.effects.repositories.api.UserRepository
 import tv.codely.scala_http_api.effects.repositories.doobie.TypesConversions._
 
-import cats.Functor, cats.syntax.functor._
+import cats.Monad, cats.syntax.functor._
 import cats.effect.Async
 
-final case class DoobieMySqlUserRepository[P[_]: Async: Functor]()(implicit 
+final case class DoobieMySqlUserRepository[P[_]: Monad]()(implicit 
   db: DoobieDbConnection[P])
 extends UserRepository[P] {
 
