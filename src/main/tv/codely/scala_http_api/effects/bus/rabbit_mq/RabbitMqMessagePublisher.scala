@@ -4,9 +4,9 @@ import com.rabbitmq.client.MessageProperties
 import tv.codely.scala_http_api.effects.bus.api.{Message, MessagePublisher}
 import tv.codely.scala_http_api.application.akkaHttp.marshaller.MessageJsonFormatMarshaller.MessageMarshaller
 import com.rabbitmq.client.Channel
-import cats.Id
+import cats.data.Reader, cats.syntax.apply._
 
-final class RabbitMqMessagePublisher(channel: Channel) extends MessagePublisher[Id] {
+object RabbitMqMessagePublisher extends MessagePublisher[Reader[Channel,?]] {
   
   // Use the default nameless exchange in order to route the published messages based on
   // the mapping between the message routing key and the queue names.
@@ -14,7 +14,7 @@ final class RabbitMqMessagePublisher(channel: Channel) extends MessagePublisher[
   // will be routed to the "codelytv_scala_api.video_created" queue.
   private val exchange = ""
 
-  private def createQueueIfNotExists(name: String) = {
+  private def createQueueIfNotExists(name: String) = Reader{ channel: Channel => 
     val availableAfterRestart     = true
     val exclusiveToConnection     = false
     val deleteOnceMessageConsumed = false
@@ -23,24 +23,23 @@ final class RabbitMqMessagePublisher(channel: Channel) extends MessagePublisher[
     channel.queueDeclare(name, availableAfterRestart, exclusiveToConnection, deleteOnceMessageConsumed, arguments)
   }
 
-  override def publish(message: Message): Unit = {
+  override def publish(message: Message) = {
     val routingKey    = message.`type`
     val messageJson   = MessageMarshaller.write(message)
     val messageBytes  = messageJson.toString.getBytes
     val persistToDisk = MessageProperties.PERSISTENT_TEXT_PLAIN
 
-    createQueueIfNotExists(name = message.`type`)
-
-    channel.basicPublish(exchange, routingKey, persistToDisk, messageBytes)
+    createQueueIfNotExists(name = message.`type`) *> 
+    Reader(_.basicPublish(exchange, routingKey, persistToDisk, messageBytes))
   }
 }
 
-object RabbitMqMessagePublisher{
+// object RabbitMqMessagePublisher{
   
-  def apply(config: RabbitMqConfig): RabbitMqMessagePublisher = {
-    new RabbitMqMessagePublisher(new RabbitMqChannelFactory(config).channel)
-  }
-}
+//   def apply(config: RabbitMqConfig): RabbitMqMessagePublisher = {
+//     new RabbitMqMessagePublisher(new RabbitMqChannelFactory(config).channel)
+//   }
+// }
 
 
 

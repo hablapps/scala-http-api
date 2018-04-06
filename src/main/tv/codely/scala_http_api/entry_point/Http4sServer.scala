@@ -27,7 +27,16 @@ object DoobieRabbitSystem{
       implicit val doobieDbConnection = new DoobieDbConnection[IO](dbConfig)
       implicit val doobieUserRepo = DoobieMySqlUserRepository[IO]
       implicit val doobieVideoRepo = DoobieMySqlVideoRepository[IO]
-      implicit val rabbitMqPublisher = RabbitMqMessagePublisher(publisherConfig)
-      SystemRepoPublisher[IO]
-  }    
+      implicit val rabbitMqPublisher = RabbitMqMessagePublisher
+      import com.rabbitmq.client.Channel
+      import effects.bus.api.MessagePublisher
+      import effects.repositories.api.{VideoRepository, UserRepository}
+      val s = SystemRepoPublisher[cats.data.ReaderT[IO, Channel, ?]]()( 
+        UserRepository.toQ(doobieUserRepo, toReaderT[IO, Channel]),
+        VideoRepository.toQ(doobieVideoRepo, toReaderT[IO, Channel]),
+        MessagePublisher.toQView(rabbitMqPublisher)(hoistReaderT[cats.Id,IO,Channel]),
+        implicitly)
+      s(new RabbitMqChannelFactory(publisherConfig).channel)
+    }
+
 }

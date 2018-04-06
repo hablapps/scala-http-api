@@ -3,6 +3,7 @@ package tv.codely
 package object scala_http_api{
 
   import cats.{Id, ~>}
+  import cats.data.ReaderT
   import scala.concurrent.Future
   import cats.effect.IO
 
@@ -14,6 +15,13 @@ package object scala_http_api{
   
   implicit def fromIdToIO: Id ~> IO =
     λ[Id ~> IO](IO.apply(_))
+
+  implicit def toReaderT[P[_], E]: P ~> ReaderT[P,E,?] = 
+    λ[P ~> ReaderT[P,E,?]](pa => cats.data.Kleisli.liftF(pa))
+
+  implicit def hoistReaderT[P[_],Q[_],E](implicit 
+    toQ: P~>Q): ReaderT[P,E,?] ~> ReaderT[Q,E,?] = 
+    λ[ReaderT[P,E,?]~>ReaderT[Q,E,?]](_.mapK(toQ))
 }
 
 package scala_http_api{
