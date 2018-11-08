@@ -1,6 +1,6 @@
-package tv.codely.scala_http_api.effects.bus.api
+package tv.codely.scala_http_api.effects.bus
 
-import tv.codely.scala_http_api.effects.bus.api.Message.application
+import tv.codely.scala_http_api.effects.bus.Message.application
 
 object Message {
   val application: String = "codelytv_scala_api"

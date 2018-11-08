@@ -7,7 +7,7 @@ import cats.Apply
 import video.repo_publisher._
 import user.repo_publisher._
 import repositories._
-import effects.bus.api.MessagePublisher
+import effects.bus.MessagePublisher
 
 final case class SystemRepoPublisher[P[_]]()(
   implicit

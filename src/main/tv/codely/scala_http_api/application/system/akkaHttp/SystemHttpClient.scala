@@ -1,22 +1,20 @@
-package tv.codely.scala_http_api.application.system.akkaHttp
+package tv.codely.scala_http_api
+package application
+package system.akkaHttp
 
-import tv.codely.scala_http_api.application._
-import tv.codely.scala_http_api.application.video._
-import tv.codely.scala_http_api.application.user._
-import tv.codely.scala_http_api.application.user._
-
-import tv.codely.scala_http_api.application.user.UserId
-
-import tv.codely.scala_http_api.application.user.UserId
-import tv.codely.scala_http_api.effects.akkaHttp.system.HttpServerConfig
-import tv.codely.scala_http_api.module.user.infrastructure.marshaller.UserJsonFormatMarshaller._
-import tv.codely.scala_http_api.module.video.infrastructure.marshaller.VideoJsonFormatMarshaller._
 import scala.concurrent.Future
 import akka.http.scaladsl.Http
 import akka.util.ByteString
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
+
+import video._, user._
+
+import effects.akkaHttp.system.HttpServerConfig
+import effects.akkaHttp.user.marshaller.UserJsonFormatMarshaller._
+import effects.akkaHttp.video.marshaller.VideoJsonFormatMarshaller._
+
 
 final class SystemHttpClient(
   implicit

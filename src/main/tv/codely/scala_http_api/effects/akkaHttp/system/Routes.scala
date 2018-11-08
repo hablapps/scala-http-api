@@ -1,17 +1,20 @@
-package tv.codely.scala_http_api.effects.akkaHttp.system
+package tv.codely.scala_http_api
+package effects.akkaHttp
+package system
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
+import scala.concurrent.duration._
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import spray.json.DefaultJsonProtocol._
 import spray.json.JsValue
-import scala.concurrent.duration._
-import tv.codely.scala_http_api.application.System
-import tv.codely.scala_http_api.effects.akkaHttp.user.{UserGetController, UserPostController}
-import tv.codely.scala_http_api.effects.akkaHttp.video.{VideoGetController, VideoPostController}
+
+import application.System
+import user.{UserGetController, UserPostController}
+import video.{VideoGetController, VideoPostController}
 
 final class Routes(
   implicit

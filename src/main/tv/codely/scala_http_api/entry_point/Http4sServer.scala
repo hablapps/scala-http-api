@@ -11,7 +11,7 @@ import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlU
 import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlVideoRepository
 import tv.codely.scala_http_api.application.repo_publisher.SystemRepoPublisher
 import tv.codely.scala_http_api.application.System
-import tv.codely.scala_http_api.application.http4s.controller.Http4sSystemService
+import tv.codely.scala_http_api.effects.http4s.Http4sSystemService
 
 object Http4sEntryPoint extends Http4sSystemService.App[IO](DoobieRabbitSystem.system)
 

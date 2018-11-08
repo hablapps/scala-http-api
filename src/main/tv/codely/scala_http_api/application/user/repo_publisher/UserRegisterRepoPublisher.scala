@@ -5,7 +5,7 @@ package repo_publisher
 
 import cats.Apply, cats.syntax.apply._
 
-import effects.bus.api.MessagePublisher
+import effects.bus.MessagePublisher
 import repositories._
 
 final case class UserRegisterRepoPublisher[P[_]]()(

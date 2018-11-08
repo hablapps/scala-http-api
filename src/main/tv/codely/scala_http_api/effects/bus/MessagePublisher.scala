@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.effects.bus.api
+package tv.codely.scala_http_api.effects.bus
 
 trait MessagePublisher[P[_]] {
   def publish(message: Message): P[Unit]

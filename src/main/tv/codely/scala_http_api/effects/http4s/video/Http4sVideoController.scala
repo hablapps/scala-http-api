@@ -1,4 +1,5 @@
-package tv.codely.scala_http_api.application.http4s.controller
+package tv.codely.scala_http_api
+package effects.http4s
 
 import cats.FlatMap, cats.syntax.apply._, cats.syntax.flatMap._
 import cats.effect._
@@ -11,8 +12,8 @@ import io.circe.generic.auto._
 import io.circe.syntax._
 
 import scala.concurrent.duration._
-import tv.codely.scala_http_api.application.video._
-import tv.codely.scala_http_api.application.user._
+import application.video._
+import application.user._
 import Decoders._
 
 case class VideoService[P[_]: Effect: FlatMap](

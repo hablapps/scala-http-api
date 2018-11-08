@@ -2,7 +2,7 @@ package tv.codely.scala_http_api
 package application
 package video
 
-import effects.bus.api.Message
+import effects.bus.Message
 import user.UserId
 
 object VideoCreated {

@@ -3,7 +3,7 @@ package application
 package video
 package repo_publisher
 
-import effects.bus.api.MessagePublisher
+import effects.bus.MessagePublisher
 import user.UserId
 import repositories._
 

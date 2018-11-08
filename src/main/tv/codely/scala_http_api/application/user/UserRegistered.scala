@@ -1,7 +1,7 @@
 package tv.codely.scala_http_api
 package application.user
 
-import effects.bus.api.Message
+import effects.bus.Message
 
 object UserRegistered {
   def apply(id: String, name: String): UserRegistered = apply(UserId(id), UserName(name))

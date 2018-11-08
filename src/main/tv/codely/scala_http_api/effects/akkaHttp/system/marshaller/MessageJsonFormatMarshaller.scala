@@ -1,11 +1,16 @@
-package tv.codely.scala_http_api.application.akkaHttp.marshaller
+package tv.codely.scala_http_api
+package effects
+package akkaHttp
+package system.marshaller
 
 import spray.json.{DefaultJsonProtocol, DeserializationException, JsString, JsValue, RootJsonFormat, SerializationException, _}
-import tv.codely.scala_http_api.effects.bus.api.Message
-import tv.codely.scala_http_api.application.user.UserRegistered
-import tv.codely.scala_http_api.module.user.infrastructure.marshaller.UserRegisteredJsonFormatMarshaller._
-import tv.codely.scala_http_api.application.video.VideoCreated
-import tv.codely.scala_http_api.module.video.infrastructure.marshaller.VideoCreatedJsonFormatMarshaller._
+
+import application.user.UserRegistered
+import application.video.VideoCreated
+
+import bus.Message
+import user.marshaller.UserRegisteredJsonFormatMarshaller._
+import video.marshaller.VideoCreatedJsonFormatMarshaller._
 
 object MessageJsonFormatMarshaller extends DefaultJsonProtocol {
   implicit object MessageMarshaller extends RootJsonFormat[Message] {

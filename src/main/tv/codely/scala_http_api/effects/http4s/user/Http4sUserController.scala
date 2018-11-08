@@ -1,4 +1,5 @@
-package tv.codely.scala_http_api.application.http4s.controller
+package tv.codely.scala_http_api
+package effects.http4s
 
 import cats.syntax.apply._, cats.syntax.flatMap._
 import cats.effect._
@@ -10,7 +11,7 @@ import org.http4s.circe._
 import io.circe.generic.auto._
 import io.circe.syntax._
 
-import tv.codely.scala_http_api.application.user._
+import application.user._
 import Decoders._
 
 case class UserService[P[_]: Effect](

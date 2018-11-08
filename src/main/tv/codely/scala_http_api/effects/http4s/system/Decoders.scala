@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.http4s.controller
+package tv.codely.scala_http_api.effects.http4s
 
 import io.circe._
 import scala.concurrent.duration._

@@ -1,5 +1,4 @@
-package tv.codely
-package scala_http_api
+package tv.codely.scala_http_api
 package entry_point
 
 import scala.concurrent.Future
@@ -10,13 +9,10 @@ import akka.actor.ActorSystem
 
 import com.typesafe.config.ConfigFactory
 
-import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
-import tv.codely.scala_http_api.application.repositories.doobieImpl.{DoobieDbConnection, JdbcConfig}
-import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlUserRepository
-import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlVideoRepository
-import tv.codely.scala_http_api.application.repo_publisher.SystemRepoPublisher
-import tv.codely.scala_http_api.effects.akkaHttp.system.HttpServerConfig
-import tv.codely.scala_http_api.effects.akkaHttp.system.SystemController
+import application.repositories.doobieImpl.{DoobieDbConnection, JdbcConfig, DoobieMySqlUserRepository, DoobieMySqlVideoRepository}
+import application.repo_publisher.SystemRepoPublisher
+import effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
+import effects.akkaHttp.system.{HttpServerConfig, SystemController}
 
 object ScalaHttpApi {
   def main(args: Array[String]): Unit = {

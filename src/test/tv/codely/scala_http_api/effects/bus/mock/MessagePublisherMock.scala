@@ -2,7 +2,7 @@ package tv.codely.scala_http_api.effects.bus.mock
 
 import org.scalamock.scalatest.MockFactory
 import tv.codely.scala_http_api.application.mock.UnitTestCase
-import tv.codely.scala_http_api.effects.bus.api.{Message, MessagePublisher}
+import tv.codely.scala_http_api.effects.bus.{Message, MessagePublisher}
 import cats.Id
 
 trait MessagePublisherMock extends MockFactory {

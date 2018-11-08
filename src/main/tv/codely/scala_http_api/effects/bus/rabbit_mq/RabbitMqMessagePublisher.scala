@@ -1,10 +1,13 @@
-package tv.codely.scala_http_api.effects.bus.rabbit_mq
+package tv.codely.scala_http_api.effects
+package bus
+package rabbit_mq
 
 import com.rabbitmq.client.MessageProperties
-import tv.codely.scala_http_api.effects.bus.api.{Message, MessagePublisher}
-import tv.codely.scala_http_api.application.akkaHttp.marshaller.MessageJsonFormatMarshaller.MessageMarshaller
 import com.rabbitmq.client.Channel
+
 import cats.Id
+
+import akkaHttp.system.marshaller.MessageJsonFormatMarshaller.MessageMarshaller
 
 final class RabbitMqMessagePublisher(channel: Channel) extends MessagePublisher[Id] {
 

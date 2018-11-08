@@ -1,10 +1,13 @@
-package tv.codely.scala_http_api.module.video.infrastructure.marshaller
+package tv.codely.scala_http_api
+package effects.akkaHttp
+package video.marshaller
 
 import spray.json.{DefaultJsonProtocol, RootJsonFormat}
-import tv.codely.scala_http_api.application.user.UserId
-import tv.codely.scala_http_api.module.shared.user.infrastructure.marshaller.UserIdJsonFormatMarshaller._
-import tv.codely.scala_http_api.application.video._
-import tv.codely.scala_http_api.module.video.infrastructure.marshaller.VideoAttributesJsonFormatMarshaller._
+
+import application.user.UserId
+import application.video._
+import user.marshaller.UserIdJsonFormatMarshaller._
+import video.marshaller.VideoAttributesJsonFormatMarshaller._
 
 object VideoJsonFormatMarshaller extends DefaultJsonProtocol {
   implicit val videoFormat: RootJsonFormat[Video] = jsonFormat(

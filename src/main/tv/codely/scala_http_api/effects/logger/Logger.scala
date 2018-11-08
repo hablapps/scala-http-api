@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.effects.logger.api
+package tv.codely.scala_http_api.effects.logger
 
 trait Logger[P[_]] {
   def info(message: String, context: Map[String, Any] = Map.empty): P[Unit]

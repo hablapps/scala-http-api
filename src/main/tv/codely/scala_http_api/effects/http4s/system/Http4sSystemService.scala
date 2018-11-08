@@ -1,4 +1,5 @@
-package tv.codely.scala_http_api.application.http4s.controller
+package tv.codely.scala_http_api
+package effects.http4s
 
 import cats.effect.Effect
 import cats.implicits._
@@ -6,7 +7,7 @@ import cats.implicits._
 import org.http4s._
 import org.http4s.dsl.Http4sDsl
 
-import tv.codely.scala_http_api.application.System
+import application.System
 
 class Http4sSystemService[F[_]: Effect](system: System[F]) extends Http4sDsl[F] {
   val service: HttpService[F] =

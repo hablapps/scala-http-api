@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.akkaHttp.marshaller
+package tv.codely.scala_http_api.effects.akkaHttp.system.marshaller
 
 import java.util.UUID
 
