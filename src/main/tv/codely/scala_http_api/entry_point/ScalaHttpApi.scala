@@ -11,9 +11,9 @@ import akka.actor.ActorSystem
 import com.typesafe.config.ConfigFactory
 
 import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
-import tv.codely.scala_http_api.effects.repositories.doobie.{DoobieDbConnection, JdbcConfig}
-import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlUserRepository
-import tv.codely.scala_http_api.effects.repositories.doobie.DoobieMySqlVideoRepository
+import tv.codely.scala_http_api.application.repositories.doobieImpl.{DoobieDbConnection, JdbcConfig}
+import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlUserRepository
+import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlVideoRepository
 import tv.codely.scala_http_api.application.repo_publisher.SystemRepoPublisher
 import tv.codely.scala_http_api.application.akkaHttp.HttpServerConfig
 import tv.codely.scala_http_api.application.akkaHttp.controller.SystemController
