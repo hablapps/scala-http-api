@@ -1,11 +1,11 @@
-package tv.codely.scala_http_api.application.repositories.doobieImpl
+package tv.codely.scala_http_api.application
+package repositories.doobieImpl
 
 import java.util.UUID
-
 import doobie.Meta
-import tv.codely.scala_http_api.application.video.VideoCategory
-
 import scala.concurrent.duration._
+
+import video.VideoCategory
 
 object TypesConversions {
   implicit val uuidMeta: Meta[UUID]                   = Meta[String].xmap(UUID.fromString, _.toString)

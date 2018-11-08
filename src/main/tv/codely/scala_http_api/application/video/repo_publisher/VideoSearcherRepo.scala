@@ -1,7 +1,8 @@
-package tv.codely.scala_http_api.application.video.repo_publisher
+package tv.codely.scala_http_api.application
+package video
+package repo_publisher
 
-import tv.codely.scala_http_api.application.video._
-import tv.codely.scala_http_api.application.repositories.VideoRepository
+import repositories.VideoRepository
 
 final case class VideosSearcherRepo[P[_]]()(
   implicit

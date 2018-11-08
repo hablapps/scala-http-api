@@ -1,6 +1,7 @@
-package tv.codely.scala_http_api.application.repositories
+package tv.codely.scala_http_api.application
+package repositories
 
-import tv.codely.scala_http_api.application.video.Video
+import video.Video
 
 trait VideoRepository[P[_]] {
   def all(): P[Seq[Video]]

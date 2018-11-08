@@ -1,10 +1,12 @@
-package tv.codely.scala_http_api.application.user.repo_publisher
+package tv.codely.scala_http_api
+package application
+package user
+package repo_publisher
 
-import tv.codely.scala_http_api.application.user._
-import tv.codely.scala_http_api.effects.bus.api.MessagePublisher
-import tv.codely.scala_http_api.application.user.UserId
-import tv.codely.scala_http_api.application.repositories._
 import cats.Apply, cats.syntax.apply._
+
+import effects.bus.api.MessagePublisher
+import repositories._
 
 final case class UserRegisterRepoPublisher[P[_]]()(
   implicit

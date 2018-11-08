@@ -1,8 +1,8 @@
-package tv.codely.scala_http_api.application.video
-
-import tv.codely.scala_http_api.application.user.UserId
+package tv.codely.scala_http_api.application
+package video
 
 import scala.concurrent.duration.Duration
+import user.UserId
 
 object Video {
   def apply(id: String, title: String, duration: Duration, category: String, creatorId: String): Video = Video(

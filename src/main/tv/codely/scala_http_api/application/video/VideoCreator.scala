@@ -1,6 +1,7 @@
-package tv.codely.scala_http_api.application.video
+package tv.codely.scala_http_api.application
+package video
 
-import tv.codely.scala_http_api.application.user.UserId
+import user.UserId
 
 trait VideoCreator[P[_]] {
 

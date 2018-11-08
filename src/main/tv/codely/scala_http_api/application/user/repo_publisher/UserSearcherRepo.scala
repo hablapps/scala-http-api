@@ -1,8 +1,8 @@
-package tv.codely.scala_http_api.application.user.repo_publisher
+package tv.codely.scala_http_api.application
+package user
+package repo_publisher
 
-import tv.codely.scala_http_api.application.user.User
-import tv.codely.scala_http_api.application.user.UsersSearcher
-import tv.codely.scala_http_api.application.repositories.UserRepository
+import repositories.UserRepository
 
 final case class UsersSearcherRepo[P[_]]()(
   implicit

@@ -1,9 +1,12 @@
-package tv.codely.scala_http_api.application.video.repo_publisher
+package tv.codely.scala_http_api
+package application
+package video
+package repo_publisher
 
-import tv.codely.scala_http_api.application.video._
-import tv.codely.scala_http_api.effects.bus.api.MessagePublisher
-import tv.codely.scala_http_api.application.user.UserId
-import tv.codely.scala_http_api.application.repositories._
+import effects.bus.api.MessagePublisher
+import user.UserId
+import repositories._
+
 import cats.Apply, cats.syntax.apply._
 
 final case class VideoCreatorRepoPublisher[P[_]]()(
