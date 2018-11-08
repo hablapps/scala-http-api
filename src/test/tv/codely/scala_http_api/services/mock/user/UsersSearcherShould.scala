@@ -4,7 +4,7 @@ package services.mock.user
 import tv.codely.scala_http_api.application.mock.UnitTestCase
 import tv.codely.scala_http_api.application.stubs.user.UserStub
 import tv.codely.scala_http_api.application.repositories.mock.UserRepositoryMock
-import tv.codely.scala_http_api.application.repo_publisher.user.UsersSearcherRepo
+import tv.codely.scala_http_api.application.user.repo_publisher.UsersSearcherRepo
 
 final class UsersSearcherRepoShould extends UnitTestCase with UserRepositoryMock {
   private val searcher = new UsersSearcherRepo()(repository)

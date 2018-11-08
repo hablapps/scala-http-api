@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.repo_publisher.video
+package tv.codely.scala_http_api.application.video.repo_publisher
 
 import tv.codely.scala_http_api.application.video._
 import tv.codely.scala_http_api.application.repositories.VideoRepository

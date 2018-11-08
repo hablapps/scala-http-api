@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.repo_publisher.user
+package tv.codely.scala_http_api.application.user.repo_publisher
 
 import tv.codely.scala_http_api.application.user.User
 import tv.codely.scala_http_api.application.user.UsersSearcher

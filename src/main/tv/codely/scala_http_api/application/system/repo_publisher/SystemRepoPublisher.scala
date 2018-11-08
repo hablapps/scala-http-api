@@ -1,10 +1,9 @@
 package tv.codely.scala_http_api
 package application
-// package system
 package repo_publisher
 
-import video._
-import user._
+import video.repo_publisher._
+import user.repo_publisher._
 import repositories._
 import effects.bus.api.MessagePublisher
 import cats.Apply
