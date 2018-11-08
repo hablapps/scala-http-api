@@ -1,6 +1,6 @@
 package tv.codely.scala_http_api.application.stubs.user
 
-import tv.codely.scala_http_api.application.user.api.User
+import tv.codely.scala_http_api.application.user.User
 import tv.codely.scala_http_api.application.stubs.SeqStub
 
 object UserStub {

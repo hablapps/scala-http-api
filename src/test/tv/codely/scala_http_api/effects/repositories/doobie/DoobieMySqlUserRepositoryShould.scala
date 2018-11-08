@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.effects.repositories.doobie
+package tv.codely.scala_http_api.application.repositories.doobieImpl
 
 import tv.codely.scala_http_api.application.stubs.user.UserStub
 import doobie.implicits._

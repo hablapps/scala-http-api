@@ -1,9 +1,9 @@
-package tv.codely.scala_http_api.effects.repositories.mock
+package tv.codely.scala_http_api.application.repositories.mock
 
 import org.scalamock.scalatest.MockFactory
 import tv.codely.scala_http_api.application.mock.UnitTestCase
-import tv.codely.scala_http_api.effects.repositories.api.UserRepository
-import tv.codely.scala_http_api.application.user.api.User
+import tv.codely.scala_http_api.application.repositories.UserRepository
+import tv.codely.scala_http_api.application.user.User
 
 import scala.concurrent.Future
 

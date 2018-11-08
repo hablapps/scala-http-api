@@ -1,10 +1,10 @@
-package tv.codely.scala_http_api.effects.repositories.doobie
+package tv.codely.scala_http_api.application.repositories.doobieImpl
 
 import akka.actor.ActorSystem
 import com.typesafe.config.ConfigFactory
 import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqChannelFactory, RabbitMqConfig, RabbitMqMessagePublisher}
 import tv.codely.scala_http_api.effects.logger.scala_logging.ScalaLoggingLogger
-import tv.codely.scala_http_api.effects.repositories.doobie.{DoobieDbConnection, JdbcConfig}
+import tv.codely.scala_http_api.application.repositories.doobieImpl.{DoobieDbConnection, JdbcConfig}
 import tv.codely.scala_http_api.application.mock.UnitTestCase
 
 trait IntegrationTestCase extends UnitTestCase {
