@@ -1,6 +1,5 @@
-package tv.codely.scala_http_api.effects.bus.rabbitmq
-
-import tv.codely.scala_http_api.effects.bus.Message
+package tv.codely.scala_http_api.effects.bus
+package rabbitmq
 
 trait MessageConsumer {
   def startConsuming(handler: Message => Boolean): Unit

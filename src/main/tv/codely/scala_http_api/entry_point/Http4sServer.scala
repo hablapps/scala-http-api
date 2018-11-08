@@ -5,13 +5,12 @@ import com.typesafe.config.Config
 import scala.concurrent.ExecutionContext.Implicits.global
 import cats.effect.IO
 
-import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
-import tv.codely.scala_http_api.application.repositories.doobieImpl.{DoobieDbConnection, JdbcConfig}
-import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlUserRepository
-import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlVideoRepository
-import tv.codely.scala_http_api.application.repo_publisher.SystemRepoPublisher
-import tv.codely.scala_http_api.application.System
-import tv.codely.scala_http_api.effects.http4s.Http4sSystemService
+import effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
+import effects.http4s.Http4sSystemService
+
+import application.repositories.doobieImpl.{DoobieMySqlVideoRepository, DoobieMySqlUserRepository, DoobieDbConnection, JdbcConfig}
+import application.system.repo_publisher.SystemRepoPublisher
+import application.system.System
 
 object Http4sEntryPoint extends Http4sSystemService.App[IO](DoobieRabbitSystem.system)
 

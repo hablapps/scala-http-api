@@ -1,6 +1,7 @@
 package tv.codely.scala_http_api
 package application
-package system.akkaHttp
+package system
+package akkaHttp
 
 import scala.concurrent.Future
 import akka.http.scaladsl.Http

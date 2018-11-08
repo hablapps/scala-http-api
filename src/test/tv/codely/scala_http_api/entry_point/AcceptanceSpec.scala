@@ -10,19 +10,19 @@ import akka.util.ByteString
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 
-import com.typesafe.config.ConfigFactory
-
-import tv.codely.scala_http_api.application.repositories.doobieImpl.JdbcConfig
-import tv.codely.scala_http_api.application.repositories.doobieImpl.{DoobieDbConnection, JdbcConfig}
-import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlUserRepository
-import tv.codely.scala_http_api.application.repositories.doobieImpl.DoobieMySqlVideoRepository
-import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
-
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{Matchers, WordSpec}
-import tv.codely.scala_http_api.application.repo_publisher.SystemRepoPublisher
-import tv.codely.scala_http_api.effects.akkaHttp.system.SystemController
-import tv.codely.scala_http_api.effects.akkaHttp.system.HttpServerConfig
+
+import com.typesafe.config.ConfigFactory
+
+import application.repositories.doobieImpl.JdbcConfig
+import application.repositories.doobieImpl.{DoobieDbConnection, JdbcConfig}
+import application.repositories.doobieImpl.DoobieMySqlUserRepository
+import application.repositories.doobieImpl.DoobieMySqlVideoRepository
+import application.system.repo_publisher.SystemRepoPublisher
+
+import effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
+import effects.akkaHttp.system.{SystemController, HttpServerConfig}
 
 protected[entry_point] abstract class AcceptanceSpec
     extends WordSpec

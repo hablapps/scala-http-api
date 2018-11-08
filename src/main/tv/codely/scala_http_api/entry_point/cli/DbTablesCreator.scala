@@ -1,14 +1,16 @@
-package tv.codely.scala_http_api.entry_point.cli
+package tv.codely.scala_http_api
+package entry_point.cli
 
 import java.io.File
 import java.sql.{Connection, DriverManager}
 
 import com.typesafe.config.ConfigFactory
-import tv.codely.scala_http_api.application.repositories.doobieImpl.JdbcConfig
 
 import scala.io.Source._
 import scala.util.Try
 import scala.util.matching.Regex
+
+import application.repositories.doobieImpl.JdbcConfig
 
 /**
   * View usage: runMain tv.codely.scala_http_api.entry_point.cli.DbTablesCreator --usage

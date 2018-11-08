@@ -1,5 +1,6 @@
 package tv.codely.scala_http_api
-package effects.http4s
+package effects
+package http4s
 
 import cats.effect.Effect
 import cats.implicits._
@@ -7,7 +8,7 @@ import cats.implicits._
 import org.http4s._
 import org.http4s.dsl.Http4sDsl
 
-import application.System
+import application.system.System
 
 class Http4sSystemService[F[_]: Effect](system: System[F]) extends Http4sDsl[F] {
   val service: HttpService[F] =
@@ -24,7 +25,7 @@ object Http4sSystemService {
   import org.http4s.server.blaze.BlazeBuilder
   import fs2.StreamApp, StreamApp.ExitCode
   import com.typesafe.config.{Config, ConfigFactory}
-  import tv.codely.scala_http_api.effects.akkaHttp.system.HttpServerConfig
+  import akkaHttp.system.HttpServerConfig
 
   class App[F[_]](system: Config => System[F])(
     implicit

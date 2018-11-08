@@ -1,6 +1,7 @@
-package tv.codely.scala_http_api.effects.bus.rabbitmq
+package tv.codely.scala_http_api.effects.bus
+package rabbitmq
 
-import tv.codely.scala_http_api.effects.bus.rabbit_mq.RabbitMqChannelFactory
+import rabbit_mq.RabbitMqChannelFactory
 
 final class RabbitMqMessagePurger(channelFactory: RabbitMqChannelFactory)(queueName: String) extends MessagePurger {
   private val channel = channelFactory.channel

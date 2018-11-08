@@ -10,7 +10,7 @@ import akka.actor.ActorSystem
 import com.typesafe.config.ConfigFactory
 
 import application.repositories.doobieImpl.{DoobieDbConnection, JdbcConfig, DoobieMySqlUserRepository, DoobieMySqlVideoRepository}
-import application.repo_publisher.SystemRepoPublisher
+import application.system.repo_publisher.SystemRepoPublisher
 import effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqMessagePublisher}
 import effects.akkaHttp.system.{HttpServerConfig, SystemController}
 

@@ -1,5 +1,5 @@
 package tv.codely.scala_http_api.application
-// package system
+package system
 
 import video.VideoCreator
 import video.VideosSearcher

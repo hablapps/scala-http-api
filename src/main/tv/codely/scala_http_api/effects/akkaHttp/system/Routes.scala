@@ -12,7 +12,7 @@ import akka.http.scaladsl.server.Route
 import spray.json.DefaultJsonProtocol._
 import spray.json.JsValue
 
-import application.System
+import application.system.System
 import user.{UserGetController, UserPostController}
 import video.{VideoGetController, VideoPostController}
 

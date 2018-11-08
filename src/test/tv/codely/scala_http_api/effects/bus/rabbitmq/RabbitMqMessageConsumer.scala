@@ -1,10 +1,12 @@
-package tv.codely.scala_http_api.effects.bus.rabbitmq
+package tv.codely.scala_http_api.effects
+package bus
+package rabbitmq
 
 import com.newmotion.akka.rabbitmq.{BasicProperties, DefaultConsumer, Envelope}
-import tv.codely.scala_http_api.effects.akkaHttp.system.marshaller.MessageJsonFormatMarshaller._
 import spray.json._
-import tv.codely.scala_http_api.effects.bus.Message
-import tv.codely.scala_http_api.effects.bus.rabbit_mq.RabbitMqChannelFactory
+
+import akkaHttp.system.marshaller.MessageJsonFormatMarshaller._
+import bus.rabbit_mq.RabbitMqChannelFactory
 
 final class RabbitMqMessageConsumer(channelFactory: RabbitMqChannelFactory)(queueName: String) extends MessageConsumer {
   private val channel = channelFactory.channel

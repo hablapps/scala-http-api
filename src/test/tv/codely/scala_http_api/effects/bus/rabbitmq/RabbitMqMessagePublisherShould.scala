@@ -1,13 +1,16 @@
-package tv.codely.scala_http_api.effects.bus.rabbitmq
+package tv.codely.scala_http_api
+package effects
+package bus
+package rabbitmq
 
 import org.scalatest.concurrent.Eventually
 import com.typesafe.config.ConfigFactory
-import tv.codely.scala_http_api.effects.bus._
-import tv.codely.scala_http_api.effects.bus.rabbit_mq._
-import tv.codely.scala_http_api.application.stubs.video.VideoCreatedStub
-import tv.codely.scala_http_api.application.mock.UnitTestCase
 import scala.collection.mutable
 import scala.concurrent.duration._
+
+import application.stubs.video.VideoCreatedStub
+import application.mock.UnitTestCase
+import effects.bus.rabbit_mq._
 
 final class RabbitMqMessagePublisherShould extends UnitTestCase with Eventually {
   private val appConfig                       = ConfigFactory.load("application")

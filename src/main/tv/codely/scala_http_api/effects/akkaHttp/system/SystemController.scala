@@ -9,7 +9,7 @@ import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.http.scaladsl.Http
 
-import application.System
+import application.system.System
 
 final case class SystemController()(
   implicit
