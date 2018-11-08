@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.akkaHttp.controller.video
+package tv.codely.scala_http_api.effects.akkaHttp.video
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import akka.http.scaladsl.server.StandardRoute

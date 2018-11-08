@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.akkaHttp.controller.video
+package tv.codely.scala_http_api.effects.akkaHttp.video
 
 import scala.concurrent.duration.Duration
 import akka.http.scaladsl.model.HttpResponse

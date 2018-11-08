@@ -21,7 +21,7 @@ import tv.codely.scala_http_api.effects.bus.rabbit_mq.{RabbitMqConfig, RabbitMqM
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{Matchers, WordSpec}
 import tv.codely.scala_http_api.application.repo_publisher.SystemRepoPublisher
-import tv.codely.scala_http_api.application.akkaHttp.controller.SystemController
+import tv.codely.scala_http_api.application.akkaHttp.system.SystemController
 import tv.codely.scala_http_api.application.akkaHttp.HttpServerConfig
 
 protected[entry_point] abstract class AcceptanceSpec

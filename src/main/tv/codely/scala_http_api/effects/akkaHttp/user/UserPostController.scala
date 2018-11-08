@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.akkaHttp.controller.user
+package tv.codely.scala_http_api.effects.akkaHttp.user
 
 import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.model.StatusCodes.NoContent
