@@ -1,5 +1,7 @@
-package tv.codely.scala_http_api.application.akkaHttp
-package client
+package tv.codely.scala_http_api
+package application
+package system
+package akkaHttp
 
 import akka.actor.ActorSystem
 import org.scalatest.{Matchers, WordSpec}
@@ -12,7 +14,7 @@ class HttpClientSpec extends WordSpec with Matchers with ScalaFutures {
 
   // Read configs
 
-  val httpServerConfig = HttpServerConfig("http://localhost", 8080)
+  val httpServerConfig = effects.akkaHttp.system.HttpServerConfig("http://localhost", 8080)
 
   // Inject dependencies
 

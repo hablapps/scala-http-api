@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.akkaHttp.system
+package tv.codely.scala_http_api.effects.akkaHttp.system
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
@@ -7,7 +7,6 @@ import akka.stream.ActorMaterializer
 import akka.http.scaladsl.Http
 import scala.io.StdIn
 import tv.codely.scala_http_api.application.System
-import tv.codely.scala_http_api.application.akkaHttp.HttpServerConfig
 
 final case class SystemController()(
   implicit

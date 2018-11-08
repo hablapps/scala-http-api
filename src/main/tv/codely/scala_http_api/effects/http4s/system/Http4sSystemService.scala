@@ -23,7 +23,7 @@ object Http4sSystemService {
   import org.http4s.server.blaze.BlazeBuilder
   import fs2.StreamApp, StreamApp.ExitCode
   import com.typesafe.config.{Config, ConfigFactory}
-  import tv.codely.scala_http_api.application.akkaHttp.HttpServerConfig
+  import tv.codely.scala_http_api.effects.akkaHttp.system.HttpServerConfig
 
   class App[F[_]](system: Config => System[F])(
     implicit

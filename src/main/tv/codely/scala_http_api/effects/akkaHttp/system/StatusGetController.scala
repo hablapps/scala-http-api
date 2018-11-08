@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.akkaHttp.system
+package tv.codely.scala_http_api.effects.akkaHttp.system
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.StandardRoute

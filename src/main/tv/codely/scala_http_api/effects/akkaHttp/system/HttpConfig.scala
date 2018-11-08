@@ -1,4 +1,4 @@
-package tv.codely.scala_http_api.application.akkaHttp
+package tv.codely.scala_http_api.effects.akkaHttp.system
 
 import com.typesafe.config.Config
 
